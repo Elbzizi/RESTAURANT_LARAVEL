@@ -20,6 +20,5 @@
         </div>
     </div>
 </div>
-<div class="btn btn-outine-info">good</div>
 
 @endsection
