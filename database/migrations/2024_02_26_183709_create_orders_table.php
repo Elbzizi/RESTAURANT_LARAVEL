@@ -12,14 +12,15 @@ return new class extends Migration {
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->integer("user_id");
+            // $table->integer("user_id");
             $table->string("phone");
             $table->string("date");
             $table->string("time");
-            $table->integer("meal_id");
+            $table->foreignId("meal_id")->constrained();
             $table->integer('qty')->default(0);
             $table->text('adress');
             $table->string('status')->default("pending");
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }
