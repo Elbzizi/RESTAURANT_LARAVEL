@@ -30,4 +30,5 @@ Route::get('/user', [HomeController::class, 'user'])->name('user');
 
 // Category
 Route::resource('category',CatecoryController::class);
+Route::get('/deleteCategory{id}',[CatecoryController::class,'Supprimer'])->name("subCat");
 

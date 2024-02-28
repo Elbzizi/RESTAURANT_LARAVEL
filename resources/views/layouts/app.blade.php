@@ -94,9 +94,10 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{ asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js') }}"></script>
 
-    <script>
+    <!-- <script>
         $(document).on("click", "#delete", function(e) {
             e.preventDefault();
+            var link = $(this).attr("href");
             Swal.fire({
   title: "voulez-vous confirmer la suppression ?",
   icon: "warning",
@@ -108,13 +109,39 @@
 }).then((result) => {
   if (result.isConfirmed) {
     Swal.fire({
-      title: "Supprimé !",
-      text: "Votre fichier a été supprimé.",
-      icon: "success"
+        title: "Supprimé !",
+        text: "Votre fichier a été supprimé.",
+        icon: "success"
+        window.location.href = link;
     });
   }
 });
                             });
+                        </script> -->
+<script>
+     $(document).on("click", "#delete", function(e) {
+    e.preventDefault();
+    var link = $(this).attr("href");
+    Swal.fire({
+        title: "voulez-vous confirmer la suppression ?",
+        icon: "warning",
+        showCancelButton: true,
+        cancelButtonText: "Annuler",
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Oui !"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: "Supprimé !",
+                text: "Votre fichier a été supprimé.",
+                icon: "success"
+            });
+            window.location.href = link; // This line should be here
+        }
+    });
+});
+
                         </script>
 </body>
 

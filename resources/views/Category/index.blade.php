@@ -29,10 +29,9 @@
                                     <td>{{ $cate->cat_name }}</td>
                                     <td>{{ $cate->created_at }}</td>
                                     <td><a href="{{route('category.show',$cate->id)}}" class="btn btn-primary">Modifier</a></td>
-                                    <td><form action="{{route('category.destroy',$cate->id)}}" method="post" >
-                                     @csrf
-                                     @method("DELETE")
-                                        <button id="delete"  class="btn btn-danger">Supprimer</button></form></td>
+                                    <td>
+                                    <a href="{{route('subCat',$cate->id)}}" id="delete"  class="btn btn-danger">Supprimer</a>
+                                    </td>
                                 </tr>
                         </tbody>
                         @endforeach
