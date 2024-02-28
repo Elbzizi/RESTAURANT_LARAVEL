@@ -29,6 +29,7 @@ class CatecoryController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate(["cat_name"=>"required|string|unique:categories|min:3|max:40"]);
         Category::create($request->all());
         return redirect()->back()->with("success","category bien ajouter ");
     }
@@ -62,6 +63,7 @@ class CatecoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Category::delete($id);
+        return redirect()->back()->with("success","le categorie bien supprimer");
     }
 }
