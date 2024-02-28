@@ -63,7 +63,7 @@ class CatecoryController extends Controller
      */
     public function destroy(string $id)
     {
-        Category::delete($id);
+        // Category::destroy($id);
         return redirect()->back()->with("success","le categorie bien supprimer");
     }
 }
