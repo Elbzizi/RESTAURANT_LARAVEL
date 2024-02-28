@@ -4,6 +4,11 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-9">
+                @session('success')
+                <div class="alert alert-success" role="alert">
+              {{ session('success')}}
+           </div>
+                @endsession
                 <div class="card text-center">
 
                     <h5 class="card-header">Catégories</h5>
@@ -22,8 +27,12 @@
                                 <tr>
                                     <th scope="row">{{ $cate->id }}</th>
                                     <td>{{ $cate->cat_name }}</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
+                                    <td>{{ $cate->created_at }}</td>
+                                    <td><a href="{{route('category.show',$cate->id)}}" class="btn btn-primary">Modifier</a></td>
+                                    <td><form action="{{route('category.destroy',$cate->id)}}" method="post" >
+                                     @csrf
+                                    @DELETE
+                                        <button  class="btn btn-danger">Supprimer</button></form></td>
                                 </tr>
                         </tbody>
                         @endforeach
