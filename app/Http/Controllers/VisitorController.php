@@ -9,6 +9,6 @@ class VisitorController extends Controller
     //
 
     public function index(){
-        return view("Visitor");
+        return view("AdminPage");
     }
 }

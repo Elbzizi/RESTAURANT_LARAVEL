@@ -17,6 +17,9 @@ class IsAdmin
     {
         if(Auth::user()->is_admin){
             return $next($request);
-        }return redirect()->back();
+        }
+        // return redirect()->view("UserPage");
+        return redirect()->route("user");
+
     }
 }

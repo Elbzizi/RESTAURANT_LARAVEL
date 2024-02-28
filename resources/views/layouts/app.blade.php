@@ -15,6 +15,8 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="{{asset("bootstrap.min.css")}}">
 </head>
 <body>
     <div id="app">
