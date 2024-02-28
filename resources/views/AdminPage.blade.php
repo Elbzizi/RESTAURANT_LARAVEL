@@ -13,7 +13,7 @@
                 <div class="card ">
                     <div class="card-header">
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <button class="btn btn-success me-md-2" type="button">Ajouter une nouvelle catégorie</button>
+                            <a href="{{route('category.index')}}" class="btn btn-success me-md-2" type="button">Catégories</a>
                             <button class="btn btn-warning" type="button">Ajouter un repas</button>
                             <button class="btn btn-primary" type="button">Afficher de repas</button>
 

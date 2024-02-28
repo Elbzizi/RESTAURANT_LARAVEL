@@ -10,7 +10,7 @@
            </div>
                 @endsession
                 <div class="card text-center">
-
+</button>
                     <h5 class="card-header">Catégories</h5>
                     <table class="table m-auto my-3 w-75 card-body" border="1">
                         <thead>
@@ -23,16 +23,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($categorys as $cate)
+                            @foreach ($categorys as $key => $cate)
                                 <tr>
-                                    <th scope="row">{{ $cate->id }}</th>
+                                    <th scope="row">{{ $key+=1 }}</th>
                                     <td>{{ $cate->cat_name }}</td>
                                     <td>{{ $cate->created_at }}</td>
                                     <td><a href="{{route('category.show',$cate->id)}}" class="btn btn-primary">Modifier</a></td>
-                                    <td><form action="{{route('category.destroy',$cate->id)}}" method="post" >
-                                     @csrf
-                                    @DELETE
-                                        <button  class="btn btn-danger">Supprimer</button></form></td>
+                                    <td>
+                                    <a href="{{route('subCat',$cate->id)}}" id="delete"  class="btn btn-danger">Supprimer</a>
+                                    </td>
                                 </tr>
                         </tbody>
                         @endforeach
@@ -56,4 +55,5 @@
             </div>
         </div>
     </div>
+ 
 @endsection
