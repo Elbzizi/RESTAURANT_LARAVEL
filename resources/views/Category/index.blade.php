@@ -30,11 +30,10 @@
                                     <td id="valcat">{{ $cate->cat_name }}</td>
                                     <td>{{ $cate->created_at }}</td>
                                     <td>
-                                <!-- <a href="{{route('category.show', $cate->id)}}" class="btn btn-primary">Modifier</a> -->
                                  <button type="button"  class="edit btn btn-primary" >Modifier</button>
                                 </td>
                                     <td>
-                                    <a href="{{route('subCat', $cate->id)}}" id="delete"  class="btn btn-danger">Supprimer</a>
+                                    <a href="{{route('category.delete', $cate->id)}}" id="delete"  class="btn btn-danger">Supprimer</a>
                                     </td>
                                 </tr>
                         </tbody>
@@ -83,19 +82,18 @@ $(".edit").on('click',function(){
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form method="post" >
+        <form method="post" action="{{route('category.update')}}">
             @csrf
-            @method('PUT')
-            <input type="text" class="form-control" id="id" value="">
+            <input  type="hidden" name="id" class="form-control" id="id" >
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Nom Catégorie :</label>
-            <input type="text" class="form-control" id="cat-name">
+            <input type="text" name="cat_name" class="form-control" id="cat-name">
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Send message</button>
+        <button type="submit" class="btn btn-primary">Modifier</button>
       </div>
     </div>
   </div>
