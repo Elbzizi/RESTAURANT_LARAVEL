@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\VisitorController;
-use App\Http\Controllers\CatecoryController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +29,13 @@ Route::get('/user', [HomeController::class, 'user'])->name('user');
 
 
 // Category
-Route::resource('category',CatecoryController::class);
-Route::get('/deleteCategory{id}',[CatecoryController::class,'Supprimer'])->name("subCat");
+// Route::resource('category',CatecoryController::class);
+// Route::get('/deleteCategory{id}',[CatecoryController::class,'Supprimer'])->name("subCat");
+// 
+Route::controller(CategoryController::class)->group(function(){
+    Route::get("/category",'index')->name("category.index");
+    Route::get("/Deletecategory{id}",'Supprimer')->name("category.delete");
+    Route::post("/Storecategory",'Supprimer')->name("category.store");
+    Route::post("/Updatecategory",'Supprimer')->name("category.update");
+});
 
