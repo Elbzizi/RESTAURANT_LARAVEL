@@ -26,12 +26,12 @@
                             @foreach ($categorys as $key => $cate)
                                 <tr>
                                     <th scope="row" >{{ $key += 1 }}</th>
-                                    <td scope="row"hidden >{{ $cate->id}}</td>
+                                    <td scope="row" hidden >{{ $cate->id}}</td>
                                     <td id="valcat">{{ $cate->cat_name }}</td>
                                     <td>{{ $cate->created_at }}</td>
                                     <td>
                                 <!-- <a href="{{route('category.show', $cate->id)}}" class="btn btn-primary">Modifier</a> -->
-                                 <button type="button" id="edit" class="btn btn-primary" >Modifier</button>
+                                 <button type="button"  class="edit btn btn-primary" >Modifier</button>
                                 </td>
                                     <td>
                                     <a href="{{route('subCat', $cate->id)}}" id="delete"  class="btn btn-danger">Supprimer</a>
@@ -59,7 +59,20 @@
             </div>
         </div>
     </div>
-
+    <script>
+    $(document).ready(function(){
+$(".edit").on('click',function(){
+          $("#exampleModal").modal('show');
+          $tr=$(this).closest('tr');
+         var data=$tr.children('td').map(function(){
+              return $(this).text();     
+          }).get();
+          console.log(data);
+          $('#id').val(data[0]);
+          $('#cat-name').val(data[1]);
+      });
+    })   
+     </script>
 @endsection
 
  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
