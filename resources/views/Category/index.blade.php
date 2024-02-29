@@ -25,8 +25,8 @@
                         <tbody>
                             @foreach ($categorys as $key => $cate)
                                 <tr>
-                                    <th scope="row">{{ $key+=1 }}</th>
-                                    <td>{{ $cate->cat_name }}</td>
+                                    <th scope="row" >{{ $key+=1 }}</th>
+                                    <td id="valcat">{{ $cate->cat_name }}</td>
                                     <td>{{ $cate->created_at }}</td>
                                     <td>
                                 <!-- <a href="{{route('category.show',$cate->id)}}" class="btn btn-primary">Modifier</a> -->
@@ -58,7 +58,12 @@
             </div>
         </div>
     </div>
- 
+    <script>
+    $("#modier").on('click',function(){
+        $("#exampleModal").modal('show')
+        $('#cat-name').val($('#valcat').html());
+    })
+</script>
 @endsection
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
