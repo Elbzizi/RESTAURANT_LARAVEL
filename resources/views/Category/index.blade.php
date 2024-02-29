@@ -25,15 +25,16 @@
                         <tbody>
                             @foreach ($categorys as $key => $cate)
                                 <tr>
-                                    <th scope="row" >{{ $key+=1 }}</th>
+                                    <th scope="row" >{{ $key += 1 }}</th>
+                                    <td scope="row"hidden >{{ $cate->id}}</td>
                                     <td id="valcat">{{ $cate->cat_name }}</td>
                                     <td>{{ $cate->created_at }}</td>
                                     <td>
-                                <!-- <a href="{{route('category.show',$cate->id)}}" class="btn btn-primary">Modifier</a> -->
-<button type="button" id="modier" class="btn btn-primary"  data-bs-whatever="@mdo">Modifier</button>
+                                <!-- <a href="{{route('category.show', $cate->id)}}" class="btn btn-primary">Modifier</a> -->
+                                 <button type="button" id="edit" class="btn btn-primary" >Modifier</button>
                                 </td>
                                     <td>
-                                    <a href="{{route('subCat',$cate->id)}}" id="delete"  class="btn btn-danger">Supprimer</a>
+                                    <a href="{{route('subCat', $cate->id)}}" id="delete"  class="btn btn-danger">Supprimer</a>
                                     </td>
                                 </tr>
                         </tbody>
@@ -58,16 +59,11 @@
             </div>
         </div>
     </div>
-    <script>
-    $("#modier").on('click',function(){
-        $("#exampleModal").modal('show')
-        $('#cat-name').val($('#valcat').html());
-    })
-</script>
+
 @endsection
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+ <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">Nouveau Catégorie</h1>
@@ -91,8 +87,3 @@
     </div>
   </div>
 </div>
-<script>
-    $("#modier").on('click',function(){
-        $("#exampleModal").modal('show')
-    })
-</script>
