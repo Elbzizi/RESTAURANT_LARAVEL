@@ -35,7 +35,7 @@ Route::get('/user', [HomeController::class, 'user'])->name('user');
 Route::controller(CategoryController::class)->group(function(){
     Route::get("/category",'index')->name("category.index");
     Route::get("/Deletecategory{id}",'Supprimer')->name("category.delete");
-    Route::post("/Storecategory",'Supprimer')->name("category.store");
-    Route::post("/Updatecategory",'Supprimer')->name("category.update");
+    Route::post("/Storecategory",'store')->name("category.store");
+    Route::post("/Updatecategory",'Update')->name("category.update");
 });
 
