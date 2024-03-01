@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class MaesController extends Controller
+class MealsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +19,7 @@ class MaesController extends Controller
      */
     public function create()
     {
-        //
+        return view('Meals.create');
     }
 
     /**
