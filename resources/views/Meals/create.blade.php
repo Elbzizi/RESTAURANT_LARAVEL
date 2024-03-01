@@ -43,6 +43,10 @@
                             <input type="text" class="form-control" name="name" placeholder="Nom de Robas ..">
                         </div>
                         <div class="form-group">
+                            <label for="name">Nom de Rebas</label>
+                            <input type="text" class="form-control" name="name" placeholder="Nom de Robas ..">
+                        </div>
+                        <div class="form-group">
                             <label for="description">Description de Ropas</label>
                             <textarea class="form-control" name="description"></textarea>
                         </div>
