@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\MaesController;
+use App\Http\Controllers\MealsController;
 use App\Http\Controllers\VisitorController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
@@ -40,5 +40,5 @@ Route::controller(CategoryController::class)->group(function () {
     Route::post("/Updatecategory", 'Update')->name("category.update");
 });
 // Mael
-Route::resource('Maes', MaesController::class);
+Route::resource('Maes', MealsController::class);
 
