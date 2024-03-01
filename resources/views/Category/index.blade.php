@@ -89,11 +89,11 @@ $(".edit").on('click',function(){
             <label for="recipient-name" class="col-form-label">Nom Catégorie :</label>
             <input type="text" name="cat_name" class="form-control" id="cat-name">
           </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <input type="submit" class="btn btn-primary" value="Modifier">
         </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Modifier</button>
       </div>
     </div>
   </div>

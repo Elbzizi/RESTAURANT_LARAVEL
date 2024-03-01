@@ -26,4 +26,12 @@ class CategoryController extends Controller
         Category::destroy($id);
         return redirect()->back()->with("success", "le categorie bien supprimer");
     }
+
+    public function Update(Request $request){
+        $request->validate(["cat_name" => "required|string|unique:categories|min:3|max:40"]);
+       $cta=Category::find($request->id);
+       $cta->cat_name=$request->cat_name;
+       $cta->save();
+       return redirect()->back()->with("success", "le categorie bien Modefier");
+    }
 }
