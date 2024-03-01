@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MaesController;
 use App\Http\Controllers\VisitorController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
@@ -32,10 +33,12 @@ Route::get('/user', [HomeController::class, 'user'])->name('user');
 // Route::resource('category',CatecoryController::class);
 // Route::get('/deleteCategory{id}',[CatecoryController::class,'Supprimer'])->name("subCat");
 // 
-Route::controller(CategoryController::class)->group(function(){
-    Route::get("/category",'index')->name("category.index");
-    Route::get("/Deletecategory{id}",'Supprimer')->name("category.delete");
-    Route::post("/Storecategory",'store')->name("category.store");
-    Route::post("/Updatecategory",'Update')->name("category.update");
+Route::controller(CategoryController::class)->group(function () {
+    Route::get("/category", 'index')->name("category.index");
+    Route::get("/Deletecategory{id}", 'Supprimer')->name("category.delete");
+    Route::post("/Storecategory", 'store')->name("category.store");
+    Route::post("/Updatecategory", 'Update')->name("category.update");
 });
+// Mael
+Route::resource('Maes', MaesController::class);
 
