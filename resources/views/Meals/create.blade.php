@@ -5,7 +5,7 @@
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
 
 <div class="container" >
-     <div class="row justify-content-center" dir="rtl">
+     <div class="row justify-content-center" >
      <div class="col-md-4">
              <div class="card">
                  <div class="card-header bg-danger text-light text-center">Menu</div>
@@ -58,6 +58,9 @@
 
                                 <select name="category" class="form-control" required="">
                                     <option value="" selected="" disabled="">Choise Une Catégorie</option>
+                                    @foreach($categories as $cat)
+                                    <option value="{{$cat->id}}">{{$cat->cat_name}}</option>
+                                    @endforeach
                                 </select>
                                 <br>
                                 <div class="form-group">
@@ -66,7 +69,7 @@
                                 </div>
                                 <br>
                                 <div class="form-group">
-                                    <!-- <img id="showImage" src="{{ url('upload/no_image.jpg') }}" style="width: 100px; height: 100px;"> -->
+                                    <img id="showImage" src="{{ url('upload/no_image.jpg') }}" style="width: 100px; height: 100px;">
                                 </div>
 
 
