@@ -11,7 +11,7 @@ class MealRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,10 +22,10 @@ class MealRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "name"=>"String|required|unique:maels|max:150|min:50",
-            "description"=>"required|text|max:250|min:50",
+            "name"=>"String|required|unique:maels|max:150",
+            "description"=>"required|string|max:250",
             "price"=>"numeric|required",
-            "image"=>"required|mimse:png,jpeg,jpg|max:150",
+            "image"=>"required|mimes:png,jpeg,jpg|max:8000",
         ];
     }
 }
