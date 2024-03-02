@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MealRequest;
 use App\Models\Category;
+use App\Models\Mael;
 use Illuminate\Http\Request;
 
 class MealsController extends Controller
@@ -27,9 +29,10 @@ class MealsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(MealRequest $request)
     {
-        //
+        Mael::created($request);
+        return redirect()->back()->with("success","Ajouter de ropas avec success");
     }
 
     /**
