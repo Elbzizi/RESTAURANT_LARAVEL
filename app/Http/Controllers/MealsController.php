@@ -32,11 +32,11 @@ class MealsController extends Controller
     public function store(MealRequest $request)
     {
         $file=$request->image;
-        $path= $file?->store("photos");
+        $path= $file?->store("Meals_Images");
 
         $data=$request->all();
 
-        $data["photo"]=$path;
+        $data["image"]=$path;
 
         Mael::created($data);
         return redirect()->back()->with("success","Ajouter de ropas avec success");
