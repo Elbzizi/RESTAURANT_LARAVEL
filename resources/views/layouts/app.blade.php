@@ -128,26 +128,34 @@
         <script>
             toastr.options = {
                 "progressBar": true,
-                "closButton":true,
-            }
+                "closeButton": true
+            };
             document.addEventListener('DOMContentLoaded', function() {
                 var type = "{{ session()->get('alert-type', 'info') }}";
 
                 switch (type) {
                     case 'info':
-                        toastr.info("{{ session()->get('message_id') }}","info",{timeOut:1200});
+                        toastr.info("{{ session('message_id') }}", "info", {
+                            timeOut: 1200
+                        });
                         break;
 
                     case 'success':
-                        toastr.success("{{ session()->get('message_id') }}");
+                        toastr.success("{{ session()->get('message_id') }}", "Success", {
+                            timeOut: 1200
+                        });
                         break;
 
                     case 'warning':
-                        toastr.warning("{{ session()->get('message_id') }}");
+                        toastr.warning("{{ session()->get('message_id') }}", "Warning", {
+                            timeOut: 1200
+                        });
                         break;
 
                     case 'error':
-                        toastr.error("{{ session()->get('message_id') }}");
+                        toastr.error("{{ session()->get('message_id') }}", "Error", {
+                            timeOut: 1200
+                        });
                         break;
                 }
             });
