@@ -126,12 +126,16 @@
 
     @if (session()->has('message_id'))
         <script>
+            toastr.options = {
+                "progressBar": true,
+                "closButton":true,
+            }
             document.addEventListener('DOMContentLoaded', function() {
                 var type = "{{ session()->get('alert-type', 'info') }}";
 
                 switch (type) {
                     case 'info':
-                        toastr.info("{{ session()->get('message_id') }}");
+                        toastr.info("{{ session()->get('message_id') }}","info",{timeOut:1200});
                         break;
 
                     case 'success':
@@ -150,7 +154,6 @@
         </script>
     @endif
     {{-- end Tostar message --}}
-
 
 </body>
 
