@@ -23,8 +23,9 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    
-
+    {{-- Tostar --}}
+    <link rel="stylesheet" href="//cdn.bootcss.com/toastr.js/latest/css/toastr.min.css"> 
+ 
  <!--sweetAlert-->
 </head>
 
@@ -93,31 +94,7 @@
     </div>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{ asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js') }}"></script>
-
-    <!-- <script>
-        $(document).on("click", "#delete", function(e) {
-            e.preventDefault();
-            var link = $(this).attr("href");
-            Swal.fire({
-  title: "voulez-vous confirmer la suppression ?",
-  icon: "warning",
-  showCancelButton: true,
-  cancelButtonText: "Annuler",
-  confirmButtonColor: "#3085d6",
-  cancelButtonColor: "#d33",
-  confirmButtonText: "Oui !"
-}).then((result) => {
-  if (result.isConfirmed) {
-    Swal.fire({
-        title: "Supprimé !",
-        text: "Votre fichier a été supprimé.",
-        icon: "success"
-        window.location.href = link;
-    });
-  }
-});
-                            });
-                        </script> -->
+    
 <script>
      $(document).on("click", "#delete", function(e) {
     e.preventDefault();
