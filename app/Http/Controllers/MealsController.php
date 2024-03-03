@@ -33,7 +33,6 @@ class MealsController extends Controller
     {
         $file=$request->image;
         $path= $file?->store("Meals_Images");
-
         $data=$request->all();
 
         $data["image"]=$path;
