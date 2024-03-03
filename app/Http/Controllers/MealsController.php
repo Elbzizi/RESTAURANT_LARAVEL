@@ -40,7 +40,7 @@ class MealsController extends Controller
         Mael::created($data);
         $notification = array(
 			'message_id' => 'Ajouter de ropas avec success',
-			'alert-type' => 'success'
+			'alert-type' => 'info'
 		);
         // return redirect()->back()->with("success","Ajouter de ropas avec success");
 
