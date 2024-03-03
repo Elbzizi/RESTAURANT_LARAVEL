@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\MealRequest;
 use App\Models\Category;
 use App\Models\Mael;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MealsController extends Controller
 {
@@ -60,9 +60,17 @@ class MealsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(MealRequest $request, string $id)
     {
-        //
+        $file=$request->image;
+        $path= $file?->store("Meals_Images");
+        $data=$request->all();
+        $data["image"]=$path;
+        $Meal=Mael::find($id);
+        if(isset($Meal->image))
+        Storage::delete( $Meal->image);
+        Mael::update($data);
+        return redirect()->back()->with("success","Modifier de ropas avec success");
     }
 
     /**
@@ -70,6 +78,8 @@ class MealsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Mael::destroy($id);
+        return redirect()->back()->with("success","Supprimer de ropas avec success");
+
     }
 }
