@@ -1,7 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-
+<style>
+    #showImage{
+        width: 120px;
+        height: 120px;
+        border-radius: 50px
+    }
+</style>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
 
     <div class="container">
@@ -47,8 +53,7 @@
                                     </div>
                                     <br>
                                     <div class="form-group">
-                                        <img id="showImage" src="{{ url('upload/no_image.jpg') }}"
-                                            style="width: 100px; height: 100px;">
+                                        <img id="showImage" src="{{ url('Meals_Images/no_image.jpg') }}">
                                     </div>
 
 
