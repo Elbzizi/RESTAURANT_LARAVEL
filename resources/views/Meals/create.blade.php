@@ -58,41 +58,42 @@
                                     </div>
                                 </div>
                             </div>
-                </div>
-                </form></div>
-
-
-
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header bg-danger text-light text-center">Menu</div>
-                <div class="card-body text-right">
-                    <ul class="list-group">
-                        <a href="{{ route('category.index') }}" class="list-group-item list-group-item-action">Ajouter
-                            catégorie</a>
-                        <a href="{{ route("Maes.") }}" class="list-group-item list-group-item-action">Rebas</a>
-
-                        <a href="" class="list-group-item list-group-item-action">Commande client</a>
-
-                    </ul>
-                </div>
-            </div>
-            @if (count($errors) > 0)
-                <div class="card mt-5">
-                    <div class="card-body">
-                        <div class="alert alert-danger">
-                            @foreach ($errors->all() as $error)
-                                <p> {{ $error }}
-                                <p>
-                            @endforeach
                         </div>
+                    </form>
+                </div>
+
+
+
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header bg-danger text-light text-center">Menu</div>
+                    <div class="card-body text-right">
+                        <ul class="list-group">
+                            <a href="{{ route('category.index') }}" class="list-group-item list-group-item-action">Ajouter
+                                catégorie</a>
+                            <a href="{{ route('Maes.create') }}" class="list-group-item list-group-item-action">Rebas</a>
+
+                            <a href="" class="list-group-item list-group-item-action">Commande client</a>
+
+                        </ul>
                     </div>
                 </div>
-            @endif
+                @if (count($errors) > 0)
+                    <div class="card mt-5">
+                        <div class="card-body">
+                            <div class="alert alert-danger">
+                                @foreach ($errors->all() as $error)
+                                    <p> {{ $error }}
+                                    <p>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                @endif
+            </div>
         </div>
     </div>
-</div>
 
 
 
