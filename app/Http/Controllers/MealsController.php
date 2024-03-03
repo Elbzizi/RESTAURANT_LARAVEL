@@ -38,7 +38,13 @@ class MealsController extends Controller
         $data["image"]=$path;
 
         Mael::created($data);
-        return redirect()->back()->with("success","Ajouter de ropas avec success");
+        $notification = array(
+			'message_id' => 'Ajouter de ropas avec success',
+			'alert-type' => 'success'
+		);
+        // return redirect()->back()->with("success","Ajouter de ropas avec success");
+
+        return redirect()->back()->with($notification);
     }
 
     /**

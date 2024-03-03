@@ -20,13 +20,13 @@
     <link rel="stylesheet" href="{{ asset('bootstrap.min.css') }}">
     <!--sweetAlert-->
 
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     {{-- Tostar --}}
-    <link rel="stylesheet" href="//cdn.bootcss.com/toastr.js/latest/css/toastr.min.css"> 
- 
- <!--sweetAlert-->
+    <link rel="stylesheet" href="//cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+
+    <!--sweetAlert-->
 </head>
 
 <body>
@@ -94,32 +94,64 @@
     </div>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{ asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js') }}"></script>
-    
-<script>
-     $(document).on("click", "#delete", function(e) {
-    e.preventDefault();
-    var link = $(this).attr("href");
-    Swal.fire({
-        title: "voulez-vous confirmer la suppression ?",
-        icon: "warning",
-        showCancelButton: true,
-        cancelButtonText: "Annuler",
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Oui !"
-    }).then((result) => {
-        if (result.isConfirmed) {
-            Swal.fire({
-                title: "Supprimé !",
-                text: "Votre fichier a été supprimé.",
-                icon: "success"
-            });
-            window.location.href = link; // This line should be here
-        }
-    });
-});
 
-                        </script>
+    <script>
+        $(document).on("click", "#delete", function(e) {
+            e.preventDefault();
+            var link = $(this).attr("href");
+            Swal.fire({
+                title: "voulez-vous confirmer la suppression ?",
+                icon: "warning",
+                showCancelButton: true,
+                cancelButtonText: "Annuler",
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Oui !"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: "Supprimé !",
+                        text: "Votre fichier a été supprimé.",
+                        icon: "success"
+                    });
+                    window.location.href = link; // This line should be here
+                }
+            });
+        });
+    </script>
+
+    {{-- Tostar message --}}
+    <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+
+    @if (session()->has('message_id'))
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var type = "{{ session()->get('alert-type', 'info') }}";
+
+                switch (type) {
+                    case 'info':
+                        toastr.info("{{ session()->get('message_id') }}");
+                        break;
+
+                    case 'success':
+                        toastr.success("{{ session()->get('message_id') }}");
+                        break;
+
+                    case 'warning':
+                        toastr.warning("{{ session()->get('message_id') }}");
+                        break;
+
+                    case 'error':
+                        toastr.error("{{ session()->get('message_id') }}");
+                        break;
+                }
+            });
+        </script>
+    @endif
+    {{-- end Tostar message --}}
+
+
 </body>
 
 </html>
