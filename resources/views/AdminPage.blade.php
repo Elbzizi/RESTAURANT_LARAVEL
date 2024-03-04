@@ -14,7 +14,7 @@
                     <div class="card-header">
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                             <a href="{{route('category.index')}}" class="btn btn-success me-md-2" type="button">Catégories</a>
-                            <a href="{{route('Maes.create')}}" class="btn btn-warning" type="button">Ajouter un repas</a>
+                            <a href="{{route('Maels.create')}}" class="btn btn-warning" type="button">Ajouter un repas</a>
                             <button class="btn btn-primary" type="button">Afficher de repas</button>
 
                         </div>

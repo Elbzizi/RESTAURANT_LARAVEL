@@ -15,7 +15,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header bg-danger text-center text-light">Robas</div>
-                    <form action="{{ route('Maes.store') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('Maels.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body text-right">
                             <div class="form-group">
