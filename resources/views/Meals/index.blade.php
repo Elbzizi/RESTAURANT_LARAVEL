@@ -1,18 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container" dir="rtl">
+<div class="container" >
     <div class="row justify-content-center">
         <div class="col-md-3">
             <div class="card">
-                <div class="card-header bg-danger text-light text-center ">القائمة</div>
+                <div class="card-header bg-danger text-light text-center ">Menu</div>
                 <div class="card-body text-right ">
                     <ul class="list-group ">
-                        <a href="{{ route('meal.index') }}" class="list-group-item list-group-item-action ">عرض
-                            الوجبات</a>
-                        <a href="{{ route('meal.create') }}" class="list-group-item list-group-item-action">إضافة
-                            وجبة</a>
-                        <a href="/home" class="list-group-item list-group-item-action">طلبات المستخدمين</a>
+                        <a href="{{ route('Maels.index') }}" class="list-group-item list-group-item-action ">Afficher Ropas</a>
+                        <a href="{{ route('Maels.create') }}" class="list-group-item list-group-item-action">Ajouter
+                            Ropas</a>
+                        <a href="/home" class="list-group-item list-group-item-action">Les commandes</a>
 
                     </ul>
                 </div>
@@ -22,7 +21,7 @@
 
         <div class="col-md-9">
             <div class="card">
-                <div class="card-header bg-danger text-light text-center ">جميع الوجبات
+                <div class="card-header bg-danger text-light text-center ">Tout les Ropas
 
                 </div>
 
