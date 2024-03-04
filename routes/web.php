@@ -40,5 +40,5 @@ Route::controller(CategoryController::class)->group(function () {
     Route::post("/Updatecategory", 'Update')->name("category.update");
 });
 // Mael
-Route::resource('Maes', MealsController::class);
+Route::resource('Maels', MealsController::class);
 
