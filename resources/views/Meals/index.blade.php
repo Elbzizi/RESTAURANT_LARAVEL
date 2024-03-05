@@ -35,9 +35,9 @@
                                         <td>{{ $row->description }}</td>
                                         <td>{{ $row->category }}</td>
                                         <td>{{ $row->price }}</td>
-                                        <td><a href="{{ route('Maels.edit', $row->id) }}"><button
+                                        <td><a href="{{ route('meal.edit', $row->id) }}"><button
                                                     class="btn btn-primary">Modifier</button></a></td>
-                                        <td> <a href="{{ route('Maels.delete', $row->id) }}" class="btn btn-danger"
+                                        <td> <a href="{{ route('meal.delete', $row->id) }}" class="btn btn-danger"
                                                 id="delete">Supprimer</a></td>
                                     </tr>
                                 @endforeach
