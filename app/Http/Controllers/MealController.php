@@ -34,19 +34,20 @@ class MealController extends Controller
      */
     public function store(MealRequest $request)
     {
-        $file = $request->image;
-        $path = $file?->store("Meals_Images");
-        $data = $request->all();
+        dd($request->all());
+        // $file = $request->image;
+        // $path = $file?->store("Meals_Images");
+        // $data = $request->all();
 
-        $data["image"] = $path;
-        Meal::create($data);
-        $notification = array(
-            'message_id' => 'Ajouter de ropas avec success',
-            'alert-type' => 'info'
-        );
-        // return redirect()->back()->with("success","Ajouter de ropas avec success");
-
-        return redirect()->back()->with($notification);
+        // $data["image"] = $path;
+        // dd($data);
+        // Meal::create($data);
+        // $notification = array(
+        //     'message_id' => 'Ajouter de ropas avec success',
+        //     'alert-type' => 'info'
+        // );
+        // // return redirect()->back()->with("success","Ajouter de ropas avec success");
+        // return redirect()->back()->with($notification);
     }
 
     /**
@@ -79,7 +80,6 @@ class MealController extends Controller
             Storage::delete($Meal->image);
         Meal::update($data);
         return redirect()->back()->with("success", "Modifier de ropas avec success");
- 
     }
 
     /**
@@ -89,6 +89,5 @@ class MealController extends Controller
     {
         Meal::destroy($meal);
         return redirect()->back()->with("success", "Supprimer de ropas avec success");
-
     }
 }
