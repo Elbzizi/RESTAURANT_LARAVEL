@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-    #showImage{
-        width: 120px;
-        height: 120px;
-        border-radius: 50px
-    }
-</style>
+    <style>
+        #showImage {
+            width: 120px;
+            height: 120px;
+            border-radius: 50px
+        }
+    </style>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
 
     <div class="container">
@@ -15,7 +15,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header bg-danger text-center text-light">Robas</div>
-                    <form action="{{ route('Maels.store') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('maels.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body text-right">
                             <div class="form-group">
@@ -77,7 +77,7 @@
                         <ul class="list-group">
                             <a href="{{ route('category.index') }}" class="list-group-item list-group-item-action">Ajouter
                                 catégorie</a>
-                            <a href="{{ route('Maels.create') }}" class="list-group-item list-group-item-action">Rebas</a>
+                            <a href="{{ route('maels.create') }}" class="list-group-item list-group-item-action">Rebas</a>
 
                             <a href="" class="list-group-item list-group-item-action">Commande client</a>
 

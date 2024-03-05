@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\MealRequest;
 use App\Models\Category;
 use App\Models\Meal;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class MealsController extends Controller
+class MealController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -38,8 +39,7 @@ class MealsController extends Controller
         $data = $request->all();
 
         $data["image"] = $path;
-
-        Meal::created($data);
+        Meal::create($data);
         $notification = array(
             'message_id' => 'Ajouter de ropas avec success',
             'alert-type' => 'info'
@@ -52,7 +52,7 @@ class MealsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Meal $meal)
     {
         //
     }
@@ -60,7 +60,7 @@ class MealsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Meal $meal)
     {
         //
     }
@@ -68,25 +68,26 @@ class MealsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(MealRequest $request, string $id)
+    public function update(MealRequest $request, Meal $meal)
     {
         $file = $request->image;
         $path = $file?->store("Meals_Images");
         $data = $request->all();
         $data["image"] = $path;
-        $Meal = Meal::find($id);
+        $Meal = Meal::find($meal);
         if (isset($Meal->image))
             Storage::delete($Meal->image);
         Meal::update($data);
         return redirect()->back()->with("success", "Modifier de ropas avec success");
+ 
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Meal $meal)
     {
-        Meal::destroy($id);
+        Meal::destroy($meal);
         return redirect()->back()->with("success", "Supprimer de ropas avec success");
 
     }
