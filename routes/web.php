@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\MealController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MealController;
 use App\Http\Controllers\VisitorController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,5 +39,6 @@ Route::controller(CategoryController::class)->group(function () {
     Route::post("/Updatecategory", 'Update')->name("category.update");
 });
 // Mael
-Route::resource('maels', MealController::class);
+Route::resource("/maels",MealController::class);
+
 
