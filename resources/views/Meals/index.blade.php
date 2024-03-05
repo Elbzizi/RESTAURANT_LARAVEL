@@ -35,9 +35,9 @@
                                         <td>{{ $row->description }}</td>
                                         <td>{{ $row->category }}</td>
                                         <td>{{ $row->price }}</td>
-                                        <td><a href="{{ route('Maels.edit', $row->id) }}"><button
+                                        <td><a href="{{ route('maels.edit', $row->id) }}"><button
                                                     class="btn btn-primary">Modifier</button></a></td>
-                                        <td> <a href="{{ route('Maels.delete', $row->id) }}" class="btn btn-danger"
+                                        <td> <a href="{{ route('maels.delete', $row->id) }}" class="btn btn-danger"
                                                 id="delete">Supprimer</a></td>
                                     </tr>
                                 @endforeach
@@ -51,9 +51,9 @@
                     <div class="card-header bg-danger text-light text-center ">Menu</div>
                     <div class="card-body text-right ">
                         <ul class="list-group ">
-                            <a href="{{ route('Maels.index') }}" class="list-group-item list-group-item-action ">Afficher
+                            <a href="{{ route('maels.index') }}" class="list-group-item list-group-item-action ">Afficher
                                 Ropas</a>
-                            <a href="{{ route('Maels.create') }}" class="list-group-item list-group-item-action">Ajouter
+                            <a href="{{ route('maels.create') }}" class="list-group-item list-group-item-action">Ajouter
                                 Ropas</a>
                             <a href="/home" class="list-group-item list-group-item-action">Les commandes</a>
                         </ul>

@@ -14,9 +14,8 @@
                     <div class="card-header">
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                             <a href="{{route('category.index')}}" class="btn btn-success me-md-2" type="button">Catégories</a>
-                            <a href="{{route('Maels.create')}}" class="btn btn-warning" type="button">Ajouter un repas</a>
+                            <a href="{{route('maels.create')}}" class="btn btn-warning" type="button">Ajouter un repas</a>
                             <button class="btn btn-primary" type="button">Afficher de repas</button>
-
                         </div>
                     </div>
                     <div class="card-body text-center">
@@ -26,7 +25,6 @@
                                     <th scope="col">Nom</th>
                                     <th scope="col">E-mail</th>
                                     <th scope="col">Téléphone</th>
-
                                     <th scope="col">date</th>
                                     <th scope="col">time</th>
                                     <th scope="col">Nom de ropas</th>
