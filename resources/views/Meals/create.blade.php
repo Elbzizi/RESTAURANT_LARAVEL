@@ -77,7 +77,7 @@
                         <ul class="list-group">
                             <a href="{{ route('category.index') }}" class="list-group-item list-group-item-action">Ajouter
                                 catégorie</a>
-                            <a href="{{ route('Maes.create') }}" class="list-group-item list-group-item-action">Rebas</a>
+                            <a href="{{ route('Maels.create') }}" class="list-group-item list-group-item-action">Rebas</a>
 
                             <a href="" class="list-group-item list-group-item-action">Commande client</a>
 
