@@ -72,9 +72,9 @@ class MealController extends Controller
     public function update(MealRequest $request, $id)
     {
         $meal = Meal::find($id);
+        $data = $request->all();
         $file = $request->image;
         $path = $file?->store("Meals_Images");
-        $data = $request->all();
         $data["image"] = $path;
         if (isset($meal->image))
             Storage::delete($meal->image);
