@@ -119,6 +119,54 @@
             });
         });
     </script>
+    {{--  methode de supperssion avec seetalert npas traville avec controller resource
+        <script>
+        // Attach click event to delete button
+        document.querySelectorAll('.delete-btn').forEach(button => {
+    button.addEventListener('click', function() {
+        const itemId = this.getAttribute('data-id');
+        const table = this.getAttribute('data-table');
+        
+        console.log(itemId);
+        console.log(table);
+
+        // Show SweetAlert2 confirmation dialog
+        Swal.fire({
+            title: 'Are you sure?',
+            text: 'You will not be able to recover this item!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'No, cancel!',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // If user confirms deletion, send request to delete item
+                fetch(`/Meals/${itemId}`, { // تمت إزالة العلامة التقديمية المضاعفة هنا
+    method: 'DELETE',
+    headers: {
+        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+        'Content-Type': 'application/json'
+    },
+})
+                .then(response => {
+                    // Handle response from server
+                    if (response.ok) {
+                        Swal.fire('Deleted!', 'Your item has been deleted.', 'success');
+                        // You can also perform further actions like removing the item from the UI
+                    } else {
+                        Swal.fire('Error!', 'Failed to delete item.', 'error');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    Swal.fire('Error!', 'Failed to delete item.', 'error');
+                });
+            }
+        });
+    });
+});
+    </script> --}}
 
     {{-- Tostar message --}}
     <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>

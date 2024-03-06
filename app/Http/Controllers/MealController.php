@@ -6,6 +6,7 @@ use App\Http\Requests\MealRequest;
 use App\Models\Category;
 use App\Models\Meal;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MealController extends Controller
 {
@@ -14,8 +15,8 @@ class MealController extends Controller
      */
     public function index()
     {
-        $meals=Meal::all();
-        return view("Meals.index",compact("meals"));
+        $meals = Meal::all();
+        return view("Meals.index", compact("meals"));
     }
 
     /**
@@ -23,8 +24,8 @@ class MealController extends Controller
      */
     public function create()
     {
-        $categories=Category::all();
-        return view("Meals.create",compact("categories"));
+        $categories = Category::all();
+        return view("Meals.create", compact("categories"));
 
     }
 
@@ -41,7 +42,7 @@ class MealController extends Controller
         Meal::create($data);
         $notification = array(
             'message_id' => 'Ajouter de ropas avec success',
-            'alert-type' => 'info'
+            'alert-type' => 'success'
         );
         // return redirect()->back()->with("success","Ajouter de ropas avec success");
         return redirect()->back()->with($notification);
@@ -52,7 +53,8 @@ class MealController extends Controller
      */
     public function show(Meal $meal)
     {
-        //
+        $categories=Category::all();
+        return view("Meals.edit",compact("categories","meal"));
     }
 
     /**
@@ -76,6 +78,26 @@ class MealController extends Controller
      */
     public function destroy(Meal $meal)
     {
-        //
+        // Meal::destroy($meal->id);
+        // $notification = array(
+        //     'message_id' => 'supprimer de ropas avec success',
+        //     'alert-type' => 'success'
+        // );
+        // return redirect()->back()->with("success","Ajouter de ropas avec success");
+        // return redirect()->back()->with("notification");
+
+    }
+
+    public function Supprimer($id)
+    {   
+        $meal=Meal::find($id);
+        if(isset($meal->image))
+        Storage::delete($meal->image);
+        $meal->delete();
+        $notification = array(
+            'message_id' => 'supprimer de ropas avec success',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
     }
 }

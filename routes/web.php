@@ -40,5 +40,7 @@ Route::controller(CategoryController::class)->group(function () {
 });
 // Mael
 Route::resource("/Meals",MealController::class);
+Route::get("/DeleteMeals{id}",[MealController::class,'Supprimer'])->name("Meals.supp");
+
 
 
