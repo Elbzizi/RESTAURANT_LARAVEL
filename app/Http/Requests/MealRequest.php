@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class MealRequest extends FormRequest
 {
@@ -23,10 +24,13 @@ class MealRequest extends FormRequest
     {
 
         return [
-            "name" => "String|required|unique:meals|max:150",
+            "name" => [
+                "required",
+                Rule::unique("meals")->ignore($this->name)
+            ],
             "description" => "required|string|max:250",
             "price" => "numeric|required",
-            "image" => "required|mimes:png,jpeg,jpg|max:8000",
+            "image" => "mimes:png,jpeg,jpg|max:8000",
         ];
 
     }

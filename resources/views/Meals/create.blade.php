@@ -15,28 +15,29 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header bg-danger text-center text-light">Robas</div>
-                    <form action="{{ route('Meals.store') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('Meal.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body text-right">
                             <div class="form-group">
                                 <label for="name">Nom de Rebas</label>
-                                <input type="text" value="{{ old("name") }}" class="form-control" name="name" placeholder="Nom de Robas ..">
+                                <input type="text" value="{{ old('name') }}" class="form-control" name="name"
+                                    placeholder="Nom de Robas ..">
                             </div>
                             <div class="form-group">
                                 <label for="description">Description de Ropas</label>
-                                <textarea class="form-control"  name="description">{{ old("description")  }}</textarea>
+                                <textarea class="form-control" name="description">{{ old('description') }}</textarea>
                             </div>
                             <div class="row">
                                 <div class="col">
                                     <label>Prix ($)</label>
-                                    <input type="number"  name="price" class="form-control" placeholder="Prix de Robas">
+                                    <input type="number" name="price" class="form-control" placeholder="Prix de Robas">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <h5>Choise Une Catégorie<span class="text-danger">*</span></h5>
                                 <div class="controls">
 
-                                    <select name="category"  class="form-control" required="">
+                                    <select name="category" class="form-control" required="">
                                         <option value="" selected="" disabled="">Choise Une Catégorie</option>
                                         @foreach ($categories as $cat)
                                             <option value="{{ $cat->id }}">{{ $cat->cat_name }}</option>
@@ -45,7 +46,7 @@
                                     <br>
                                     <div class="form-group">
                                         <label>Image de Ropas</label>
-                                        <input type="file"  name="image" class="form-control" id="image">
+                                        <input type="file" name="image" class="form-control" id="image">
                                     </div>
                                     <br>
                                     <div class="form-group">
@@ -73,7 +74,7 @@
                         <ul class="list-group">
                             <a href="{{ route('category.index') }}" class="list-group-item list-group-item-action">Ajouter
                                 catégorie</a>
-                            <a href="{{ route('Meals.index') }}" class="list-group-item list-group-item-action">Repas</a>
+                            <a href="{{ route('Meal.index') }}" class="list-group-item list-group-item-action">Repas</a>
 
                             <a href="" class="list-group-item list-group-item-action">Commande client</a>
 

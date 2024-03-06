@@ -13,10 +13,11 @@
                 <div class="card ">
                     <div class="card-header">
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <a href="{{route('category.index')}}" class="btn btn-success me-md-2" type="button">Catégories</a>
-                            <a href="{{route('Meals.create')}}" class="btn btn-warning" type="button">Ajouter un repas</a>
-                            <a href="{{route('Meals.index')}}" class="btn btn-primary" type="button">Afficher de repas</a>
-                        </div> 
+                            <a href="{{ route('category.index') }}" class="btn btn-success me-md-2"
+                                type="button">Catégories</a>
+                            <a href="{{ route('Meal.create') }}" class="btn btn-warning" type="button">Ajouter un repas</a>
+                            <a href="{{ route('Meal.index') }}" class="btn btn-primary" type="button">Afficher de repas</a>
+                        </div>
                     </div>
                     <div class="card-body text-center">
                         <table class="table table-bordered">
@@ -45,5 +46,5 @@
                 </div>
             </div>
         </div>
-        </div>
-    @endsection
+    </div>
+@endsection
