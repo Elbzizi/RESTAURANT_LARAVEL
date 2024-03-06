@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class VisitorController extends Controller
@@ -9,6 +10,8 @@ class VisitorController extends Controller
     //
 
     public function index(){
-        return view("AdminPage");
+        $categories=Category::all();
+
+        return view("UserPage",compact("categories"));
     }
 }
