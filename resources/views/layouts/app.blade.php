@@ -136,25 +136,25 @@
                 switch (type) {
                     case 'info':
                         toastr.info("{{ session('message_id') }}", "info", {
-                            timeOut: 1200
+                            timeOut: 1900
                         });
                         break;
 
                     case 'success':
                         toastr.success("{{ session()->get('message_id') }}", "Success", {
-                            timeOut: 1200
+                            timeOut: 1900
                         });
                         break;
 
                     case 'warning':
                         toastr.warning("{{ session()->get('message_id') }}", "Warning", {
-                            timeOut: 1200
+                            timeOut: 1900
                         });
                         break;
 
                     case 'error':
                         toastr.error("{{ session()->get('message_id') }}", "Error", {
-                            timeOut: 1200
+                            timeOut: 1900
                         });
                         break;
                 }
