@@ -24,7 +24,7 @@ class MealRequest extends FormRequest
     {
 
         return [
-            // "name" => ["required", Rule::unique("meals")->ignore($this->meal) ],
+            // "name" => ["required", Rule::unique("meals")->ignoreModel($this->meal) ],
             'name' => 'required|unique:meals,name', 
             "description" => "required|string|max:250",
             "price" => "numeric|required",
