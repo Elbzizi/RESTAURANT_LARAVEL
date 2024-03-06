@@ -15,7 +15,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header bg-danger text-center text-light">Robas</div>
-                    <form action="{{ route('ropas.store') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('Meals.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body text-right">
                             <div class="form-group">
@@ -73,7 +73,7 @@
                         <ul class="list-group">
                             <a href="{{ route('category.index') }}" class="list-group-item list-group-item-action">Ajouter
                                 catégorie</a>
-                            <a href="{{ route('ropas.create') }}" class="list-group-item list-group-item-action">Rebas</a>
+                            <a href="{{ route('Meals.create') }}" class="list-group-item list-group-item-action">Rebas</a>
 
                             <a href="" class="list-group-item list-group-item-action">Commande client</a>
 

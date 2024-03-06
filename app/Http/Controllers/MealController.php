@@ -6,7 +6,6 @@ use App\Http\Requests\MealRequest;
 use App\Models\Category;
 use App\Models\Meal;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class MealController extends Controller
 {
@@ -15,9 +14,8 @@ class MealController extends Controller
      */
     public function index()
     {
-        $meals = Meal::all();
-        dd($meals);
-        return view("Meals.index", compact("meals"));
+        $meals=Meal::all();
+        return view("Meals.index",compact("meals"));
     }
 
     /**
@@ -25,8 +23,9 @@ class MealController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
-        return view('Meals.create', compact("categories"));
+        $categories=Category::all();
+        return view("Meals.create",compact("categories"));
+
     }
 
     /**
@@ -34,20 +33,18 @@ class MealController extends Controller
      */
     public function store(MealRequest $request)
     {
+        $file = $request->image;
+        $path = $file?->store("Meals_Images");
+        $data = $request->all();
 
-        // $file = $request->image;
-        // $path = $file?->store("Meals_Images");
-        // $data = $request->all();
-
-        // $data["image"] = $path;
-        // dd($data);
-        // Meal::create($data);
-        // $notification = array(
-        //     'message_id' => 'Ajouter de ropas avec success',
-        //     'alert-type' => 'info'
-        // );
-        // // return redirect()->back()->with("success","Ajouter de ropas avec success");
-        // return redirect()->back()->with($notification);
+        $data["image"] = $path;
+        Meal::create($data);
+        $notification = array(
+            'message_id' => 'Ajouter de ropas avec success',
+            'alert-type' => 'info'
+        );
+        // return redirect()->back()->with("success","Ajouter de ropas avec success");
+        return redirect()->back()->with($notification);
     }
 
     /**
@@ -71,15 +68,7 @@ class MealController extends Controller
      */
     public function update(MealRequest $request, Meal $meal)
     {
-        $file = $request->image;
-        $path = $file?->store("Meals_Images");
-        $data = $request->all();
-        $data["image"] = $path;
-        $Meal = Meal::find($meal);
-        if (isset($Meal->image))
-            Storage::delete($Meal->image);
-        Meal::update($data);
-        return redirect()->back()->with("success", "Modifier de ropas avec success");
+        //
     }
 
     /**
@@ -87,7 +76,6 @@ class MealController extends Controller
      */
     public function destroy(Meal $meal)
     {
-        Meal::destroy($meal);
-        return redirect()->back()->with("success", "Supprimer de ropas avec success");
+        //
     }
 }
