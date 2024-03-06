@@ -15,12 +15,13 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header bg-danger text-center text-light">Robas</div>
-                    <form action="{{ route('Meals.store') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('Meals.update',$meal->id) }}" method="post" enctype="multipart/form-data">
                         @csrf
+                        @method('PUT')
                         <div class="card-body text-right">
                             <div class="form-group">
                                 <label for="name">Nom de Rebas</label>
-                                <input type="text" value="{{ old("name") }}" class="form-control" name="name" placeholder="Nom de Robas ..">
+                                <input type="text" value="{{ ["name"] }}" class="form-control" name="name" placeholder="Nom de Robas ..">
                             </div>
                             <div class="form-group">
                                 <label for="description">Description de Ropas</label>

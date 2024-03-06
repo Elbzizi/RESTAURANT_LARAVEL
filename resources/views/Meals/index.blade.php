@@ -37,8 +37,10 @@
                                         <td>{{ $row->price }}</td>
                                         <td><a href="{{ route('Meals.edit', $row->id) }}"><button
                                                     class="btn btn-primary">Modifier</button></a></td>
-                                        <td> <a href="" class="btn btn-danger"
-                                                id="delete">Supprimer</a></td>
+                                        <td>
+                                            <a href="{{ route('Meals.supp', $row->id) }}" id="delete"
+                                                class="btn btn-danger delete-btn">Supprimer</a>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
