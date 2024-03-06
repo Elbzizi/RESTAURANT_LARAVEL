@@ -21,11 +21,13 @@ class MealRequest extends FormRequest
      */
     public function rules(): array
     {
+
         return [
-            "name"=>"String|required|unique:maels|max:150",
-            "description"=>"required|string|max:250",
-            "price"=>"numeric|required",
-            "image"=>"required|mimes:png,jpeg,jpg|max:8000",
+            "name" => "String|required|unique:meals|max:150",
+            "description" => "required|string|max:250",
+            "price" => "numeric|required",
+            "image" => "required|mimes:png,jpeg,jpg|max:8000",
         ];
+
     }
 }
