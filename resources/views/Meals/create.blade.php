@@ -30,7 +30,7 @@
                             <div class="row">
                                 <div class="col">
                                     <label>Prix ($)</label>
-                                    <input type="number" name="price" class="form-control" placeholder="Prix de Robas">
+                                    <input type="text" value="{{ old('price') }}" name="price" class="form-control" placeholder="Prix de Robas">
                                 </div>
                             </div>
                             <div class="form-group">
