@@ -45,7 +45,7 @@ class MealController extends Controller
             'alert-type' => 'success'
         );
         // return redirect()->back()->with("success","Ajouter de ropas avec success");
-        return redirect()->back()->with($notification);
+        return redirect()->route("Meal.index")->with($notification);
     }
 
     /**
@@ -59,11 +59,11 @@ class MealController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Meal $meal)
+    public function edit($id)
     {
-        dd($meal);
+        $meal=Meal::find($id);
         $categories=Category::all();
-        return view("Meals.edit",compact("categories","meal"));
+        return view("Meals.edit",compact("meal","categories"));
     }
 
     /**
@@ -80,10 +80,10 @@ class MealController extends Controller
             Storage::delete($meal->photo);
         $meal->update($data);
         $notification = array(
-            'message_id' => 'Ajouter de ropas avec success',
+            'message_id' => 'Modification de ropas avec success',
             'alert-type' => 'success'
         );
-        return redirect()->back()->with($notification);
+        return redirect()->route("Meal.index")->with($notification);
     }
 
     /**

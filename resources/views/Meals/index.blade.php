@@ -27,19 +27,19 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($meals as $row)
+                                @foreach ($meals as $meal)
                                     <tr>
-                                        <th scope="row">{{ $row->id }}</th>
-                                        <td><img src="{{ asset($row->image) }}" width="80"></td>
-                                        <td>{{ $row->name }}</td>
-                                        <td>{{ $row->description }}</td>
-                                        <td>{{ $row->category }}</td>
-                                        <td>{{ $row->price }}</td>
-                                        <td><a href="{{ route('Meals.edit', $row->id) }}"
+                                        <th scope="row">{{ $meal->id }}</th>
+                                        <td><img src="{{ asset($meal->image) }}" width="80"></td>
+                                        <td>{{ $meal->name }}</td>
+                                        <td>{{ $meal->description }}</td>
+                                        <td>{{ $meal->category }}</td>
+                                        <td>{{ $meal->price }}</td>
+                                        <td><a href="{{ route('Meal.edit', $meal->id) }}"
                                                 class="btn btn-primary">Modifier</a>
                                         </td>
                                         <td>
-                                            <a href="{{ route('Meals.supp', $row->id) }}" id="delete"
+                                            <a href="{{ route('Meal.supp', $meal->id) }}" id="delete"
                                                 class="btn btn-danger delete-btn">Supprimer</a>
                                         </td>
                                     </tr>
@@ -54,9 +54,9 @@
                     <div class="card-header bg-danger text-light text-center ">Menu</div>
                     <div class="card-body text-right ">
                         <ul class="list-group ">
-                            <a href="{{ route('Meals.index') }}" class="list-group-item list-group-item-action ">Afficher
+                            <a href="{{ route('Meal.index') }}" class="list-group-item list-group-item-action ">Afficher
                                 Ropas</a>
-                            <a href="{{ route('Meals.create') }}" class="list-group-item list-group-item-action">Ajouter
+                            <a href="{{ route('Meal.create') }}" class="list-group-item list-group-item-action">Ajouter
                                 Ropas</a>
                             <a href="/home" class="list-group-item list-group-item-action">Les commandes</a>
                         </ul>

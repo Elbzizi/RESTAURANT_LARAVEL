@@ -39,8 +39,8 @@ Route::controller(CategoryController::class)->group(function () {
     Route::post("/Updatecategory", 'Update')->name("category.update");
 });
 // Mael
-Route::resource("/Meals",MealController::class);
-Route::get("/DeleteMeals{id}",[MealController::class,'Supprimer'])->name("Meals.supp");
+Route::resource("/Meal",MealController::class);
+Route::get("/DeleteMeals{id}",[MealController::class,'Supprimer'])->name("Meal.supp");
 
 
 
