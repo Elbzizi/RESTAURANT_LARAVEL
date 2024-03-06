@@ -73,11 +73,13 @@ class MealController extends Controller
     {
         $meal = Meal::find($id);
         $data = $request->all();
-        $file = $request->image;
-        $path = $file?->store("Meals_Images");
-        $data["image"] = $path;
-        if (isset($meal->image))
-            Storage::delete($meal->image);
+        if (isset($data["image"])) {
+            $file = $request->image;
+            $path = $file?->store("Meals_Images");
+            $data["image"] = $path;
+            if (isset($meal->image))
+                Storage::delete($meal->image);
+        }
         $meal->update($data);
         $notification = array(
             'message_id' => 'Modification de ropas avec success',
