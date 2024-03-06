@@ -53,7 +53,7 @@ class MealController extends Controller
      */
     public function show(Meal $meal)
     {
-        
+
     }
 
     /**
@@ -61,23 +61,23 @@ class MealController extends Controller
      */
     public function edit($id)
     {
-        $meal=Meal::find($id);
-        $categories=Category::all();
-        return view("Meals.edit",compact("meal","categories"));
+        $meal = Meal::find($id);
+        $categories = Category::all();
+        return view("Meals.edit", compact("meal", "categories"));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(MealRequest $request, Meal $meal)
+    public function update(MealRequest $request, $id)
     {
+        $meal = Meal::find($id);
         $file = $request->image;
         $path = $file?->store("Meals_Images");
         $data = $request->all();
-
         $data["image"] = $path;
-        if(isset($meal->image))
-            Storage::delete($meal->photo);
+        if (isset($meal->image))
+            Storage::delete($meal->image);
         $meal->update($data);
         $notification = array(
             'message_id' => 'Modification de ropas avec success',
@@ -102,10 +102,10 @@ class MealController extends Controller
     }
 
     public function Supprimer($id)
-    {   
-        $meal=Meal::find($id);
-        if(isset($meal->image))
-        Storage::delete($meal->image);
+    {
+        $meal = Meal::find($id);
+        if (isset($meal->image))
+            Storage::delete($meal->image);
         $meal->delete();
         $notification = array(
             'message_id' => 'supprimer de ropas avec success',
