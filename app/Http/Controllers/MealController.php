@@ -34,7 +34,7 @@ class MealController extends Controller
      */
     public function store(MealRequest $request)
     {
-        dd($request->all());
+
         // $file = $request->image;
         // $path = $file?->store("Meals_Images");
         // $data = $request->all();

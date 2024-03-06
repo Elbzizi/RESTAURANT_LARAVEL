@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->string("phone");
             $table->string("date");
             $table->string("time");
-            $table->foreignId("meal_id")->constrained();
+            $table->foreignId("ropa_id")->constrained();
             $table->integer('qty')->default(0);
             $table->text('adress');
             $table->string('status')->default("pending");

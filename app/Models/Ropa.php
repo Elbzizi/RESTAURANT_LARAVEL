@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Ropa extends Model
 {
     use HasFactory;
+    protected $guarded=[];
 }
