@@ -35,8 +35,9 @@
                                         <td>{{ $row->description }}</td>
                                         <td>{{ $row->category }}</td>
                                         <td>{{ $row->price }}</td>
-                                        <td><a href="{{ route('Meals.edit', $row->id) }}"><button
-                                                    class="btn btn-primary">Modifier</button></a></td>
+                                        <td><a href="{{ route('Meals.edit', $row->id) }}"
+                                                class="btn btn-primary">Modifier</a>
+                                        </td>
                                         <td>
                                             <a href="{{ route('Meals.supp', $row->id) }}" id="delete"
                                                 class="btn btn-danger delete-btn">Supprimer</a>

@@ -21,16 +21,16 @@
                         <div class="card-body text-right">
                             <div class="form-group">
                                 <label for="name">Nom de Rebas</label>
-                                <input type="text" value="{{ ["name"] }}" class="form-control" name="name" placeholder="Nom de Robas ..">
+                                <input type="text" value=" {{ $mael->name }}" class="form-control" name="name" placeholder="Nom de Robas ..">
                             </div>
                             <div class="form-group">
                                 <label for="description">Description de Ropas</label>
-                                <textarea class="form-control"  name="description">{{ old("description")  }}</textarea>
+                                <textarea class="form-control"  name="description"> {{ $mael->description }}</textarea>
                             </div>
                             <div class="row">
                                 <div class="col">
                                     <label>Prix ($)</label>
-                                    <input type="number"  name="price" class="form-control" placeholder="Prix de Robas">
+                                    <input type="number" value=" {{ $mael->price }}" name="price" class="form-control" placeholder="Prix de Robas">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -40,7 +40,7 @@
                                     <select name="category"  class="form-control" required="">
                                         <option value="" selected="" disabled="">Choise Une Catégorie</option>
                                         @foreach ($categories as $cat)
-                                            <option value="{{ $cat->id }}">{{ $cat->cat_name }}</option>
+                                            <option value="{{ $cat->id }}"  {{ $cat->cat_name==$meal->category ?"selected":"" }}   >{{ $cat->cat_name }}</option>
                                         @endforeach
                                     </select>
                                     <br>
@@ -50,13 +50,13 @@
                                     </div>
                                     <br>
                                     <div class="form-group">
-                                        <img id="showImage" src="{{ url('Meals_Images/no_image.jpg') }}">
+                                        <img id="showImage" src="{{ asset($meal->image) }}">
                                     </div>
 
 
                                     <br>
                                     <div class="form-group text-center">
-                                        <button class="btn btn-danger" type="submit">Enregistrer</button>
+                                        <button class="btn btn-danger" type="submit">Modifeir</button>
                                     </div>
                                 </div>
                             </div>

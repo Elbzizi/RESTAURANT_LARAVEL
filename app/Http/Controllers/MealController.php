@@ -53,8 +53,7 @@ class MealController extends Controller
      */
     public function show(Meal $meal)
     {
-        $categories=Category::all();
-        return view("Meals.edit",compact("categories","meal"));
+        
     }
 
     /**
@@ -62,7 +61,9 @@ class MealController extends Controller
      */
     public function edit(Meal $meal)
     {
-        //
+        dd($meal);
+        $categories=Category::all();
+        return view("Meals.edit",compact("categories","meal"));
     }
 
     /**
@@ -70,7 +71,19 @@ class MealController extends Controller
      */
     public function update(MealRequest $request, Meal $meal)
     {
-        //
+        $file = $request->image;
+        $path = $file?->store("Meals_Images");
+        $data = $request->all();
+
+        $data["image"] = $path;
+        if(isset($meal->image))
+            Storage::delete($meal->photo);
+        $meal->update($data);
+        $notification = array(
+            'message_id' => 'Ajouter de ropas avec success',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
     }
 
     /**
