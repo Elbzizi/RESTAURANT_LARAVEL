@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-9">
                 <div class="card">
-                    <div class="card-header bg-success text-light text-center ">Tout les Ropas
+                    <div class="card-header bg-success text-light text-center ">Tout les Ropas {{ count($meals) }}
                     </div>
                     <div class="card-body">
                         @if (session('message'))
@@ -13,23 +13,9 @@
                                 {{ session('message') }}
                             </div>
                         @endif
-                        <table class="table table-bordered text-center">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Image</th>
-                                    <th scope="col">Nom </th>
-                                    <th scope="col">Description</th>
-                                    <th scope="col">Gatégorie</th>
-                                    <th scope="col">Prix ($)</th>
-                                    <th scope="col">Modifier</th>
-                                    <th scope="col">Supprimer</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                            </tbody>
-                        </table>
+                        @foreach ($meals as $meal)
+                            <x-meal :image="$meal->image" :name="$meal->name" :description="$meal->description" :id="$meal->id" />
+                        @endforeach
                     </div>
                 </div>
             </div>
