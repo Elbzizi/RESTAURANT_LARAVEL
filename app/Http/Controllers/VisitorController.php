@@ -10,10 +10,11 @@ class VisitorController extends Controller
 {
     //
 
-    public function index(){
-        $meals=Meal::all();
-        $categories=Category::all();
+    public function index()
+    {
+        $meals = Meal::all();
+        $categories = Category::all();
 
-        return view("UserPage",compact("categories","meals"));
+        return view("UserPage", compact("categories", "meals"));
     }
 }
