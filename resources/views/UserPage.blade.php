@@ -5,7 +5,10 @@
         <div class="row justify-content-center">
             <div class="col-md-9">
                 <div class="card">
-                    <div class="card-header bg-success text-light text-center ">Tout les Ropas {{ count($meals) }}
+                    <div class="card-header bg-success text-light text-center ">Tout les Ropas {{ count($meals) }} <br>
+                        @isset($name)
+                           le nom de catégorie : {{ $name }} 
+                        @endisset
                     </div>
                     <div class="card-body">
                         @if (session('message'))
