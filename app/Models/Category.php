@@ -10,7 +10,7 @@ class Category extends Model
     use HasFactory;
     protected $guarded = [];
 
-    public function Meal()
+    public function meals()
     {
         return $this->hasMany(Meal::class);
     }
