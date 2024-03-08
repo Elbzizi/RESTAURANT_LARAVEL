@@ -26,6 +26,6 @@ class HomeController extends Controller
         return view('home');
     }public function user()
     {
-        return view('UserPage');
+        return view('AdminPage');
     }
 }

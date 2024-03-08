@@ -19,7 +19,7 @@ class VisitorController extends Controller
     public function Meal_cat($id)
     {
         $categories = Category::all();
-        $meals = $categories->where("id", $id)->Meal();
+        $meals = Category::where("id", $id)->meals;
         $name = $meals->Category->cat_name;
         return view("UserPage", compact("categories", "meals", "name"));
     }
