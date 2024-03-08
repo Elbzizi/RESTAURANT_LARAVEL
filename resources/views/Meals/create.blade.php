@@ -30,14 +30,15 @@
                             <div class="row">
                                 <div class="col">
                                     <label>Prix ($)</label>
-                                    <input type="text" value="{{ old('price') }}" name="price" class="form-control" placeholder="Prix de Robas">
+                                    <input type="text" value="{{ old('price') }}" name="price" class="form-control"
+                                        placeholder="Prix de Robas">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <h5>Choise Une Catégorie<span class="text-danger">*</span></h5>
                                 <div class="controls">
 
-                                    <select name="category" class="form-control" required="">
+                                    <select name="categorie_id" class="form-control" required="">
                                         <option value="" selected="" disabled="">Choise Une Catégorie</option>
                                         @foreach ($categories as $cat)
                                             <option value="{{ $cat->id }}">{{ $cat->cat_name }}</option>

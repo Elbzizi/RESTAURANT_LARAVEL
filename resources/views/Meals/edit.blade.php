@@ -39,7 +39,7 @@
                                 <h5>Choise Une Catégorie<span class="text-danger">*</span></h5>
                                 <div class="controls">
 
-                                    <select name="category" class="form-control" required="">
+                                    <select name="categorie_id" class="form-control" required="">
                                         <option value="" selected="" disabled="">Choise Une Catégorie</option>
                                         @foreach ($categories as $cat)
                                             <option value="{{ $cat->id }}"
