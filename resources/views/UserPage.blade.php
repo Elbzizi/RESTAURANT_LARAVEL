@@ -25,7 +25,7 @@
                     <div class="card-body text-right text-start ">
                         <ul class="list-group ">
                             @foreach ($categories as $item)
-                                <a href="{{ route('Meal.index') }}"
+                                <a href="{{ route('cat_pro', $item->id) }}"
                                     class="list-group-item btn btn-outline-success">{{ $item->cat_name }}
                                     Ropas</a>
                             @endforeach
