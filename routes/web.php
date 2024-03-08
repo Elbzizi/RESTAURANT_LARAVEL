@@ -24,7 +24,6 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware("is_admin");
-Route::get('/', [VisitorController::class, 'index'])->name('Visitor');
 Route::get('/user', [HomeController::class, 'user'])->name('user');
 
 
@@ -43,4 +42,6 @@ Route::resource("/Meal",MealController::class);
 Route::get("/DeleteMeals{id}",[MealController::class,'Supprimer'])->name("Meal.supp");
 
 
-
+// parte user
+Route::get('/', [VisitorController::class, 'index'])->name('Visitor');
+Route::get('/cat_pro{id}', [VisitorController::class, 'Meal_cat'])->name('cat_pro');
