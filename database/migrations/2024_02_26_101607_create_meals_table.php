@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('meals', function (Blueprint $table) {
             $table->id();
-            $table->string("category");
+            $table->foreignId("categorie_id")->constrained();
             $table->string("name");
             $table->text("description");
             $table->integer("price");
