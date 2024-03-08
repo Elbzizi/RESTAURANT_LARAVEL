@@ -14,7 +14,12 @@ class VisitorController extends Controller
     {
         $meals = Meal::all();
         $categories = Category::all();
-
+        return view("UserPage", compact("categories", "meals"));
+    }
+    public function Meals($id)
+    {
+        $meals = Meal::where("category",$id)->get();
+        $categories = Category::all();
         return view("UserPage", compact("categories", "meals"));
     }
 }
