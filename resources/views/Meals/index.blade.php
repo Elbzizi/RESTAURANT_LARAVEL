@@ -33,7 +33,7 @@
                                         <td><img src="{{ asset($meal->image) }}" width="80"></td>
                                         <td>{{ $meal->name }}</td>
                                         <td>{{ $meal->description }}</td>
-                                        <td>{{ $meal->category }}</td>
+                                        <td>{{ $meal->category->cat_name }}</td>
                                         <td>{{ $meal->price }}</td>
                                         <td><a href="{{ route('Meal.edit', $meal->id) }}"
                                                 class="btn btn-primary">Modifier</a>

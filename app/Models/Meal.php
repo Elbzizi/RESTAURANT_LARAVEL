@@ -11,8 +11,8 @@ class Meal extends Model
     protected $table = "meals";
     protected $guarded = [];
 
-    public function Category()
+    public function category()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class, 'category_id');
     }
 }

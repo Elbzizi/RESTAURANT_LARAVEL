@@ -39,11 +39,11 @@
                                 <h5>Choise Une Catégorie<span class="text-danger">*</span></h5>
                                 <div class="controls">
 
-                                    <select name="categorie_id" class="form-control" required="">
+                                    <select name="category_id" class="form-control" required="">
                                         <option value="" selected="" disabled="">Choise Une Catégorie</option>
                                         @foreach ($categories as $cat)
                                             <option value="{{ $cat->id }}"
-                                                {{ $cat->id == $meal->category ? 'selected' : '' }}>
+                                                {{ $cat->id == $meal->category_id ? 'selected' : '' }}>
                                                 {{ $cat->cat_name }}
                                             </option>
                                         @endforeach
