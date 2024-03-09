@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header bg-success text-light text-center ">Tout les Ropas {{ count($meals) }} <br>
                         @isset($name)
-                           le nom de catégorie : {{ $name }} 
+                            le nom de catégorie : {{ $name }}
                         @endisset
                     </div>
                     <div class="card-body">
@@ -16,9 +16,17 @@
                                 {{ session('message') }}
                             </div>
                         @endif
-                        @foreach ($meals as $meal)
-                            <x-meal :image="$meal->image" :name="$meal->name" :description="$meal->description" :id="$meal->id" />
-                        @endforeach
+                        <div class="row justify-content-around gx-3  gy-3">
+                            @foreach ($meals as $meal)
+                                <x-meal :image="$meal->image" :name="$meal->name" :description="$meal->description" :id="$meal->id" />
+                            @endforeach
+                            @foreach ($meals as $meal)
+                                <x-meal :image="$meal->image" :name="$meal->name" :description="$meal->description" :id="$meal->id" />
+                            @endforeach
+                            @foreach ($meals as $meal)
+                                <x-meal :image="$meal->image" :name="$meal->name" :description="$meal->description" :id="$meal->id" />
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
