@@ -43,7 +43,7 @@
                                         <option value="" selected="" disabled="">Choise Une Catégorie</option>
                                         @foreach ($categories as $cat)
                                             <option value="{{ $cat->id }}"
-                                                {{ $cat->id == $meal->category ? 'selected' : '' }}>
+                                                {{ $cat->id == $meal->category_id ? 'selected' : '' }}>
                                                 {{ $cat->cat_name }}
                                             </option>
                                         @endforeach
