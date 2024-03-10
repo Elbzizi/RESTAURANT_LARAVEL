@@ -52,7 +52,8 @@ class MealController extends Controller
      */
     public function show(Meal $meal)
     {
-
+              $meal=Meal::findOrFail($meal);
+              return view("meal_deatails",compact($meal));
     }
 
     /**
