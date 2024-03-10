@@ -50,10 +50,10 @@ class MealController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Meal $meal)
+    public function show($id)
     {
-              $meal=Meal::findOrFail($meal);
-              return view("meal_deatails",compact($meal));
+              $meal=Meal::findOrFail($id);
+              return view("Meals.meal_deatails",compact("meal"));
     }
 
     /**
