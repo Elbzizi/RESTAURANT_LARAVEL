@@ -20,12 +20,6 @@
                             @foreach ($meals as $meal)
                                 <x-meal :image="$meal->image" :name="$meal->name" :description="$meal->description" :id="$meal->id" />
                             @endforeach
-                            @foreach ($meals as $meal)
-                                <x-meal :image="$meal->image" :name="$meal->name" :description="$meal->description" :id="$meal->id" />
-                            @endforeach
-                            @foreach ($meals as $meal)
-                                <x-meal :image="$meal->image" :name="$meal->name" :description="$meal->description" :id="$meal->id" />
-                            @endforeach
                         </div>
                     </div>
                 </div>
