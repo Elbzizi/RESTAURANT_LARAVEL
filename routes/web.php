@@ -36,12 +36,19 @@ Route::controller(CategoryController::class)->group(function () {
     Route::get("/Deletecategory{id}", 'Supprimer')->name("category.delete");
     Route::post("/Storecategory", 'store')->name("category.store");
     Route::post("/Updatecategory", 'Update')->name("category.update");
-});
+})->middleware(['Auth', 'is_admin']);
 // Mael
-Route::resource("/Meal",MealController::class);
-Route::get("/DeleteMeals{id}",[MealController::class,'Supprimer'])->name("Meal.supp");
+Route::resource("/Meal", MealController::class)->middleware(["auth","is_admin"]);
+Route::get("/DeleteMeals{id}", [MealController::class, 'Supprimer'])->name("Meal.supp");
+
+
 
 
 // parte user
 Route::get('/', [VisitorController::class, 'index'])->name('Visitor');
 Route::get('/cat_pro{id}', [VisitorController::class, 'Meal_cat'])->name('cat_pro');
+
+// Route::middleware(['first', 'second'])->group(function () {
+//     Route::get('/', function () {
+//     // Uses first & second middleware...
+//     });
