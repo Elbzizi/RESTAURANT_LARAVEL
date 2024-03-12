@@ -19,7 +19,7 @@ class IsAdmin
             return $next($request);
         }
         // return redirect()->view("UserPage");
-        return redirect()->route("user");
+        return redirect()->route("Visitor");
 
     }
 }
