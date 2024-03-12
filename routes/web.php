@@ -38,7 +38,7 @@ Route::controller(CategoryController::class)->group(function () {
     Route::post("/Updatecategory", 'Update')->name("category.update");
 })->middleware(['Auth', 'is_admin']);
 // Mael
-Route::resource("/Meal", MealController::class)->middleware(["auth","is_admin"]);
+Route::resource("/Meal", MealController::class)->middleware("auth");
 Route::get("/DeleteMeals{id}", [MealController::class, 'Supprimer'])->name("Meal.supp");
 
 
