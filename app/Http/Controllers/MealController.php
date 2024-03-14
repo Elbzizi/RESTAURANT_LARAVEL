@@ -13,9 +13,9 @@ class MealController extends Controller
     /**
      * Display a listing of the resource.
      */
-    // public __constrector(){
-    //     ^this->middlexare()->except('')
-    // }
+    public function __constrector(){
+        $this->middlexare("is_admin")->except('show');
+    }
     public function index()
     {
         $meals = Meal::all();
