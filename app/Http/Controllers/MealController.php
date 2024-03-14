@@ -13,8 +13,9 @@ class MealController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function __constrector(){
-        $this->middlexare("is_admin")->except('show');
+    public function __construct()
+    {
+        $this->middleware("is_admin")->except('show');
     }
     public function index()
     {
@@ -55,8 +56,8 @@ class MealController extends Controller
      */
     public function show($id)
     {
-              $meal=Meal::findOrFail($id);
-              return view("Meals.meal_deatails",compact("meal"));
+        $meal = Meal::findOrFail($id);
+        return view("Meals.meal_deatails", compact("meal"));
     }
 
     /**
@@ -76,11 +77,11 @@ class MealController extends Controller
     {
         $meal = Meal::find($id);
         $data = $request->all();
-        if (isset($data["image"])) {
+        if (isset ($data["image"])) {
             $file = $request->image;
             $path = $file?->store("Meals_Images");
             $data["image"] = $path;
-            if (isset($meal->image))
+            if (isset ($meal->image))
                 Storage::delete($meal->image);
         }
         $meal->update($data);
@@ -109,7 +110,7 @@ class MealController extends Controller
     public function Supprimer($id)
     {
         $meal = Meal::find($id);
-        if (isset($meal->image))
+        if (isset ($meal->image))
             Storage::delete($meal->image);
         $meal->delete();
         $notification = array(
