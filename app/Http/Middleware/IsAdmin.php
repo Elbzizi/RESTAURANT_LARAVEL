@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Auth;
+
 class IsAdmin
 {
     /**
@@ -15,7 +16,8 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::user()->is_admin){
+        $concet = Auth::user();
+        if ($concet && Auth::user()->is_admin) {
             return $next($request);
         }
         // return redirect()->view("UserPage");
