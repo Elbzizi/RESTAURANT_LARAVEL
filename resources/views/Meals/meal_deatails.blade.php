@@ -39,17 +39,7 @@
                                         <strong>Nom de Ropas :</strong> {{ $meal->name }} <br /><br>
                                         <strong>Prix :</strong> {{ $meal->price }} <br /><br>
                                         <strong>Description :</strong>
-                                        <p>{{ $meal->description }} </p><br /><br>
-
-                                        {{-- <h3 class="d-inline-block d-sm-none">LOWA Men’s Renegade GTX Mid Hiking Boots
-                                                Review</h3>
-                                            <h3 class="my-3">LOWA Men’s Renegade GTX Mid Hiking Boots Review</h3>
-                                            <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt
-                                                tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth. Cosby
-                                                sweater eu banh mi, qui irure terr.</p>
-
-                                            <hr>
-                                            <h4>Available Colors</h4> --}}
+                                        <p>{{ $meal->description }} </p><br /><br>               
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
@@ -71,6 +61,8 @@
                                 @csrf
                                 <label for="">Nome de utilisateur :</label> <b>{{ Auth::user()->name }}</b> <br>
                                 <label for="">E-mail :</label> <b>{{ Auth::user()->email }}</b>
+                                <input type="hidden" name="meal_id" value="{{ $meal->category->id}}">
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Telephone :</label>
                                     <input type="phone" class="form-control" id="exampleInputEmail1" name="phone"

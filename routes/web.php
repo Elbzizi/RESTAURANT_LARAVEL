@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MealController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\VisitorController;
 use Illuminate\Support\Facades\Route;
 
@@ -48,7 +49,5 @@ Route::get("/DeleteMeals{id}", [MealController::class, 'Supprimer'])->name("Meal
 Route::get('/', [VisitorController::class, 'index'])->name('Visitor');
 Route::get('/cat_pro{id}', [VisitorController::class, 'Meal_cat'])->name('cat_pro');
 
-// Route::middleware(['first', 'second'])->group(function () {
-//     Route::get('/', function () {
-//     // Uses first & second middleware...
-//     });
+//parte de orders
+Route::resource("/order",OrderController::class);
