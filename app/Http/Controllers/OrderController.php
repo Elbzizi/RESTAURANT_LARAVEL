@@ -10,6 +10,11 @@ class OrderController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function __construct()
+    {
+        $this->middleware("auth");
+        $this->middleware("is_admin")->except("store");
+    }
     public function index()
     {
         //
@@ -28,7 +33,12 @@ class OrderController extends Controller
      */
     public function store(OrderRequest $request)
     {
-        //
+        Order::create($request->all());
+        $notification = array(
+            'message_id' => 'la commonde avec success',
+            'alert-type' => 'success'
+        );
+        return redirect()->route("Visitor")->with($notification);
     }
 
     /**
