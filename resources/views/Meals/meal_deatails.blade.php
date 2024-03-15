@@ -29,7 +29,8 @@
                                 <div class="row">
                                     <div class="col-12 col-sm-5">
                                         <div class="col-12">
-                                            <img src="{{ asset($meal->image) }}" class="product-image img-thumbnail" alt="Product Image">
+                                            <img src="{{ asset($meal->image) }}" class="product-image img-thumbnail"
+                                                alt="Product Image">
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-7">
@@ -37,7 +38,8 @@
                                         <strong>Gategorie :</strong> {{ $meal->category->cat_name }} <br /><br>
                                         <strong>Nom de Ropas :</strong> {{ $meal->name }} <br /><br>
                                         <strong>Prix :</strong> {{ $meal->price }} <br /><br>
-                                        <strong>Description :</strong> <p>{{ $meal->description }} </p><br /><br>
+                                        <strong>Description :</strong>
+                                        <p>{{ $meal->description }} </p><br /><br>
 
                                         {{-- <h3 class="d-inline-block d-sm-none">LOWA Men’s Renegade GTX Mid Hiking Boots
                                                 Review</h3>
@@ -64,22 +66,37 @@
                 <div class="card">
                     <div class="card-header bg-success text-light text-center ">Commandé</div>
                     <div class="card-body text-right text-start ">
-                        <form>
-                            <div class="mb-3">
-                              <label for="exampleInputEmail1" class="form-label">Email address</label>
-                              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                            </div>
-                            <div class="mb-3">
-                              <label for="exampleInputPassword1" class="form-label">Password</label>
-                              <input type="password" class="form-control" id="exampleInputPassword1">
-                            </div>
-                            <div class="mb-3 form-check">
-                              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                              <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                          </form>
+                        @auth
+                            <form>
+                                @csrf
+                                <label for="">Nome de utilisateur :</label> <b>{{ Auth::user()->name }}</b> <br>
+                                <label for="">E-mail :</label> <b>{{ Auth::user()->email }}</b>
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Telephone :</label>
+                                    <input type="phone" class="form-control" id="exampleInputEmail1" name="phone"
+                                        aria-describedby="emailHelp">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label">Date :</label>
+                                    <input type="date" name="date" class="form-control" id="exampleInputPassword1">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label">Time :</label>
+                                    <input type="time" name="time" class="form-control" id="exampleInputPassword1">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label">Adrisse :</label>
+                                    <textarea name="adress" class="form-control" id="exampleInputPassword1" cols="15" rows="3"></textarea>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary">Commandé</button>
+                            </form>
+                        @endauth
+                        @guest
+                            <p> se connecter pour commander </p>
+                            <a href="{{ route('login') }}" class="btn btn-primary">se connecter</a>
+                        @endguest
+
                     </div>
                 </div>
             </div>
