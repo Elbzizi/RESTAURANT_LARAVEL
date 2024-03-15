@@ -20,7 +20,18 @@
                             </div>
                         @endif
 
-
+                        @if (count($errors) > 0)
+                            <div class="card mt-5">
+                                <div class="card-body">
+                                    <div class="alert alert-danger">
+                                        @foreach ($errors->all() as $error)
+                                            <p> {{ $error }}
+                                            <p>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
                         <!-- Main content -->
                         <section class="content">
 
@@ -39,7 +50,7 @@
                                         <strong>Nom de Ropas :</strong> {{ $meal->name }} <br /><br>
                                         <strong>Prix :</strong> {{ $meal->price }} <br /><br>
                                         <strong>Description :</strong>
-                                        <p>{{ $meal->description }} </p><br /><br>               
+                                        <p>{{ $meal->description }} </p><br /><br>
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
@@ -57,12 +68,13 @@
                     <div class="card-header bg-success text-light text-center ">Commandé</div>
                     <div class="card-body text-right text-start ">
                         @auth
-                            <form>
+                            <form method="post" action="{{ route('order.store') }}">
                                 @csrf
                                 <label for="">Nome de utilisateur :</label> <b>{{ Auth::user()->name }}</b> <br>
                                 <label for="">E-mail :</label> <b>{{ Auth::user()->email }}</b>
-                                <input type="hidden" name="meal_id" value="{{ $meal->category->id}}">
-                                <input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
+                                <input type="hidden" name="meal_id" value="{{ $meal->category->id }}">
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                                <input type="hidden" name="status" value="pending">
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Telephone :</label>
                                     <input type="phone" class="form-control" id="exampleInputEmail1" name="phone"
@@ -75,6 +87,10 @@
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">Time :</label>
                                     <input type="time" name="time" class="form-control" id="exampleInputPassword1">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label">Quentity :</label>
+                                    <input type="number" name="qty" class="form-control" id="exampleInputPassword1">
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">Adrisse :</label>

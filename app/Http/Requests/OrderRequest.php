@@ -24,8 +24,8 @@ class OrderRequest extends FormRequest
     {
         $today = Carbon::today()->toDateString();
         return [
-            "phone" => "required|numeric|regex:/^0[5|6|7][0-9]{8}$/|max:10",
-            "date" => "required|date|after:$today",
+            "phone" => "required|numeric|regex:/^0[5-7][0-9]{8}$/",
+            "date" => "required|date|after_or_equal:$today",
             "time" => "required|date_format:H:i",
             "meal_id" => "required|exists:meals,id",
             'qty' => "required|numeric",

@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Meal;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -24,7 +25,7 @@ class MealRequest extends FormRequest
     {
 
         return [
-            "name" => ["required", Rule::unique("meals")->ignore($this->meal) ],
+            "name" => ["required", Rule::unique(Meal::class)->ignore($this->meal)],
             // 'name' => 'required|unique:meals,name', 
             "description" => "required|string|max:250",
             "price" => "numeric|required",
