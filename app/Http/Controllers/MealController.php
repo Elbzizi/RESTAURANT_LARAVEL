@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\MealRequest;
 use App\Models\Category;
 use App\Models\Meal;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class MealController extends Controller

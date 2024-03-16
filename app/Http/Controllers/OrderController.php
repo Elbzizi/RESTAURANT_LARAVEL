@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\OrderRequest;
 use App\Models\Order;
+use Auth;
 
 class OrderController extends Controller
 {
@@ -25,7 +26,8 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+       $comande= Order::where("user_id",Auth::user()->id);
+       return view(compact("comande"));
     }
 
     /**

@@ -37,6 +37,17 @@
                         </ul>
                     </div>
                 </div>
+
+
+                <div class="card">
+                    <div class="card-header bg-success text-light text-center ">Menu</div>
+                    <div class="card-body text-right text-start ">
+                        <ul class="list-group ">
+                            <a class="list-group-item btn btn-outline-success" href="{{ route('order.create') }}">Commandes
+                            précédentes</a>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
