@@ -50,4 +50,4 @@ Route::get('/', [VisitorController::class, 'index'])->name('Visitor');
 Route::get('/cat_pro{id}', [VisitorController::class, 'Meal_cat'])->name('cat_pro');
 
 //parte de orders
-Route::resource("/order",OrderController::class);
+Route::resource("/Order",OrderController::class);
