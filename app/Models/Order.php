@@ -10,11 +10,11 @@ class Order extends Model
     use HasFactory;
     protected $guarded = [];
 
-    public function order_user()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
-    public function order_mael()
+    public function meal()
     {
         return $this->belongsTo(Meal::class);
     }

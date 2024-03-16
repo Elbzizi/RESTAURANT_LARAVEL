@@ -14,7 +14,7 @@ class OrderController extends Controller
     public function __construct()
     {
         $this->middleware("auth");
-        $this->middleware("is_admin")->except("store");
+        $this->middleware("is_admin")->except("store", "create");
     }
     public function index()
     {
@@ -26,8 +26,8 @@ class OrderController extends Controller
      */
     public function create()
     {
-       $comande= Order::where("user_id",Auth::user()->id);
-       return view(compact("comande"));
+        $comandes = Order::where("user_id", Auth::user()->id);
+        return view("Orders.Show_Order", compact("comandes"));
     }
 
     /**
