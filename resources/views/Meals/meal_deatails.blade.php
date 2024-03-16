@@ -68,11 +68,11 @@
                     <div class="card-header bg-success text-light text-center ">Commandé</div>
                     <div class="card-body text-right text-start ">
                         @auth
-                            <form method="post" action="{{ route('order.store') }}">
+                            <form method="post" action="{{ route('Order.store') }}">
                                 @csrf
                                 <label for="">Nome de utilisateur :</label> <b>{{ Auth::user()->name }}</b> <br>
                                 <label for="">E-mail :</label> <b>{{ Auth::user()->email }}</b>
-                                <input type="hidden" name="meal_id" value="{{ $meal->category->id }}">
+                                <input type="hidden" name="meal_id" value="{{ $meal->id }}">
                                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                                 <input type="hidden" name="status" value="pending">
                                 <div class="mb-3">
