@@ -26,7 +26,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        $comandes = Order::where("user_id", Auth::user()->id);
+        $comandes = Order::where("user_id", Auth::user()->id)->get();
         return view("Orders.Show_Order", compact("comandes"));
     }
 

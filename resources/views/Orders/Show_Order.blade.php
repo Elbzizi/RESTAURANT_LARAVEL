@@ -38,18 +38,6 @@
                                             <td>{{ $com->meal->price * $com->qty }}</td>
                                             <td>{{ $com->adress }}</td>
                                             <td>{{ $com->status }}</td>
-
-                                            <td>Nom</td>
-                                            <td>Télépdone</td>
-                                            <td>E-mail</td>
-                                            <td>Date</td>
-                                            <td>Time</td>
-                                            <td>Ropas</td>
-                                            <td>Quentity</td>
-                                            <td>Prix</td>
-                                            <td>Total (Dd)</td>
-                                            <td>Adrisse</td>
-                                            <td>Status</td>
                                         </tr>
                                     @endforeach
                                 </tbody>
