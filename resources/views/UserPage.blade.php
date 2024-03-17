@@ -38,16 +38,18 @@
                     </div>
                 </div>
 
-
-                <div class="card">
-                    <div class="card-header bg-success text-light text-center ">Menu</div>
-                    <div class="card-body text-right text-start ">
-                        <ul class="list-group ">
-                            <a href="{{ route('Order.create') }}" class="list-group-item btn btn-outline-success">Commandes
-                                précédentes</a>
-                        </ul>
+                @auth
+                    <div class="card">
+                        <div class="card-header bg-success text-light text-center ">Commandes
+                            précédentes</div>
+                        <div class="card-body text-right text-start ">
+                            <ul class="list-group ">
+                                <a href="{{ route('Order.create') }}" class="list-group-item btn btn-outline-success">Commandes
+                                    précédentes</a>
+                            </ul>
+                        </div>
                     </div>
-                </div>
+                @endauth
             </div>
         </div>
     </div>
