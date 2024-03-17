@@ -48,12 +48,6 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        Order::create($request->all());
-        $notification = array(
-            'message_id' => 'la commonde avec success',
-            'alert-type' => 'success'
-        );
-        return redirect()->route("Visitor")->with($notification);
     }
 
     /**
