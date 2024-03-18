@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\OrderRequest;
+use Illuminate\Http\Request;
+
 use App\Models\Order;
 use Auth;
+
 
 class OrderController extends Controller
 {
@@ -61,9 +64,9 @@ class OrderController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(OrderRequest $request, Order $order)
+    public function update(Request $request, Order $order)
     {
-        //
+        dd($request->all());
     }
 
     /**
