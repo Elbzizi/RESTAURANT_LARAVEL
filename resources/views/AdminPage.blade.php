@@ -40,6 +40,24 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($orders as $order)
+                                    <tr>
+                                        <td scope="col">{{ $order->user->name }}</td>
+                                        <td scope="col">{{ $order->user->email }}</td>
+                                        <td scope="col">{{ $order->phone }}</td>
+                                        <td scope="col">{{ $order->date }}</td>
+                                        <td scope="col">{{ $order->time }}</td>
+                                        <td scope="col">{{ $order->meal->name }}</td>
+                                        <td scope="col">{{ $order->qty }}</td>
+                                        <td scope="col">{{ $order->meal->price }}(DH)</td>
+                                        <td scope="col">{{ $order->qty * $order->meal->price }}Total (DH)</td>
+                                        <td scope="col">{{ $order->adress }}</td>
+                                        <td scope="col">{{ $order->status }} </td>
+                                        {{-- <th scope="col">{{ $order-> }}Accépte</th> --}}
+                                        {{-- <th scope="col">{{ $order-> }}Rejet de la demande</th> --}}
+                                        {{-- <th scope="col">{{ $order-> }}Complétez la commande</th> --}}
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

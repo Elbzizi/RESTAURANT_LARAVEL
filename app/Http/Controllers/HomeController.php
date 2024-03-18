@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,8 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('AdminPage');
-    }public function user()
+        $orders = Order::all();
+        return view('AdminPage', compact("orders"));
+    }
+    public function user()
     {
         return view('AdminPage');
     }
