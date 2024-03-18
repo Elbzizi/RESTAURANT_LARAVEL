@@ -53,9 +53,17 @@
                                         <td scope="col">{{ $order->qty * $order->meal->price }}Total (DH)</td>
                                         <td scope="col">{{ $order->adress }}</td>
                                         <td scope="col">{{ $order->status }} </td>
-                                        {{-- <th scope="col">{{ $order-> }}Accépte</th> --}}
-                                        {{-- <th scope="col">{{ $order-> }}Rejet de la demande</th> --}}
-                                        {{-- <th scope="col">{{ $order-> }}Complétez la commande</th> --}}
+                                        <form action="{{ route('Order.update', $order->id) }}" method="post">
+                                            @csrf
+                                            @method('PUT')
+                                            <td scope="col"><button name="status" value="pending"
+                                                    type="submit">Accépte</button></td>
+                                            <td scope="col"><button name="status" value="Renvoyer"
+                                                    type="submit">Rejet</button></td>
+                                            <td scope="col"><button name="status" value="confirmed"
+                                                    type="submit">Complétez</button>
+                                            </td>
+                                        </form>
                                     </tr>
                                 @endforeach
                             </tbody>
