@@ -66,7 +66,13 @@ class OrderController extends Controller
      */
     public function update(Request $request, Order $order)
     {
-        dd($request->all());
+        $order->update(["status" => $request->status]);
+        $notification = array(
+            'message_id' => 'la commonde avec success',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+
     }
 
     /**
