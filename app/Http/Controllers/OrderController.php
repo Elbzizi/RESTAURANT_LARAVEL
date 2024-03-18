@@ -68,7 +68,7 @@ class OrderController extends Controller
     {
         $order->update(["status" => $request->status]);
         $notification = array(
-            'message_id' => 'la commonde avec success',
+            'message_id' => 'modification de commande avec success',
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);
