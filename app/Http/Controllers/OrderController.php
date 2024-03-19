@@ -64,9 +64,10 @@ class OrderController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $order)
+    public function update(Request $request, $id)
     {
-       Order::where("id",$order)->update(["status" => $request->status]);
+        $order = Order::findOrFail($id);
+        $order->update(["status" => $request->status]);
         $notification = array(
             'message_id' => 'modification de commande avec success',
             'alert-type' => 'success'
