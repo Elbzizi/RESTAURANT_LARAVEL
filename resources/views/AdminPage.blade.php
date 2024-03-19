@@ -20,7 +20,7 @@
                         </div>
                     </div>
                     <div class="card-body text-center">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered" >
                             <thead>
                                 <tr>
                                     <th scope="col">Nom</th>
@@ -56,12 +56,12 @@
                                         <form action="{{ route('Order.update', $order->id) }}" method="post">
                                             @csrf
                                             @method('PUT')
-                                            <td scope="col"><button name="status" value="pending"
-                                                    type="submit">Accépte</button></td>
-                                            <td scope="col"><button name="status" value="Renvoyer"
+                                            <td scope="col"><button class="btn btn-primary" name="status"
+                                                    value="Pending" type="submit">Accépte</button></td>
+                                            <td scope="col"><button class="btn btn-danger" name="status" value="Refuse"
                                                     type="submit">Rejet</button></td>
-                                            <td scope="col"><button name="status" value="confirmed"
-                                                    type="submit">Complétez</button>
+                                            <td scope="col"><button class="btn btn-success" name="status"
+                                                    value="Confirmed" type="submit">Complétez</button>
                                             </td>
                                         </form>
                                     </tr>

@@ -30,7 +30,7 @@ class OrderRequest extends FormRequest
             "meal_id" => "required|exists:meals,id",
             'qty' => "required|numeric",
             'adress' => "required",
-            'status' => "required|in:pending,confirmed,Renvoyer",
+            'status' => "required|in:Pending,Confirmed,Refuse",
         ];
     }
 }
