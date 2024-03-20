@@ -19,54 +19,56 @@
                             <a href="{{ route('Meal.index') }}" class="btn btn-primary" type="button">Afficher de repas</a>
                         </div>
                     </div>
-                    <table class="table table-bordered text-center">
-                        <thead>
-                            <tr>
-                                <th scope="col">Nom</th>
-                                <th scope="col">E-mail</th>
-                                <th scope="col">Téléphone</th>
-                                <th scope="col">date</th>
-                                <th scope="col">time</th>
-                                <th scope="col">Nom de ropas</th>
-                                <th scope="col">quantity</th>
-                                <th scope="col">Prix de ropas($)</th>
-                                <th scope="col">Total ($)</th>
-                                <th scope="col">Address</th>
-                                <th scope="col">Status </th>
-                                <th scope="col">Accépte</th>
-                                {{-- <th scope="col">Rejet de la demande</th>
-                                    <th scope="col">Complétez la commande</th> --}}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($orders as $order)
+                    <div class="card-body text-center">
+                        <table class="table table-bordered">
+                            <thead>
                                 <tr>
-                                    <td scope="col">{{ $order->user->name }}</td>
-                                    <td scope="col">{{ $order->user->email }}</td>
-                                    <td scope="col">{{ $order->phone }}</td>
-                                    <td scope="col">{{ $order->date }}</td>
-                                    <td scope="col">{{ $order->time }}</td>
-                                    <td scope="col">{{ $order->meal->name }}</td>
-                                    <td scope="col">{{ $order->qty }}</td>
-                                    <td scope="col">{{ $order->meal->price }}(DH)</td>
-                                    <td scope="col">{{ $order->qty * $order->meal->price }}Total (DH)</td>
-                                    <td scope="col">{{ $order->adress }}</td>
-                                    <td scope="col">{{ $order->status }} </td>
-                                    <form action="{{ route('Order.update', $order->id) }}" method="post">
-                                        @csrf
-                                        @method('PUT')
-                                        <td scope="col" class="d-flex"><button class="btn btn-primary" name="status"
-                                                value="Pending" type="submit">Accépte</button>
-                                            <button class="btn btn-danger" name="status" value="Refuse"
-                                                type="submit">Rejet</button>
-                                            <button class="btn btn-success" name="status" value="Confirmed"
-                                                type="submit">Complétez</button>
-                                        </td>
-                                    </form>
+                                    {{-- <th scope="col">Nom</th> --}}
+                                    <th scope="col">E-mail</th>
+                                    <th scope="col">Téléphone</th>
+                                    <th scope="col">date</th>
+                                    <th scope="col">time</th>
+                                    <th scope="col">Nom de ropas</th>
+                                    <th scope="col">quantity</th>
+                                    <th scope="col">Prix de ropas($)</th>
+                                    <th scope="col">Total ($)</th>
+                                    {{-- <th scope="col">Address</th> --}}
+                                    <th scope="col">Status </th>
+                                    <th scope="col">Accépte</th>
+                                    <th scope="col">Rejet de la demande</th>
+                                    <th scope="col">Complétez la commande</th>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @foreach ($orders as $order)
+                                    <tr>
+                                        {{-- <td scope="col">{{ $order->user->name }}</td> --}}
+                                        <td scope="col">{{ $order->user->email }}</td>
+                                        <td scope="col">{{ $order->phone }}</td>
+                                        <td scope="col">{{ $order->date }}</td>
+                                        <td scope="col">{{ $order->time }}</td>
+                                        <td scope="col">{{ $order->meal->name }}</td>
+                                        <td scope="col">{{ $order->qty }}</td>
+                                        <td scope="col">{{ $order->meal->price }}(DH)</td>
+                                        <td scope="col">{{ $order->qty * $order->meal->price }}Total (DH)</td>
+                                        {{-- <td scope="col">{{ $order->adress }}</td> --}}
+                                        <td scope="col">{{ $order->status }} </td>
+                                        <form action="{{ route('Order.update', $order->id) }}" method="post">
+                                            @csrf
+                                            @method('PUT')
+                                            <td scope="col"><button class="btn btn-primary" name="status"
+                                                    value="Pending" type="submit">Accépte</button></td>
+                                            <td scope="col"><button class="btn btn-danger" name="status" value="Refuse"
+                                                    type="submit">Rejet</button></td>
+                                            <td scope="col"><button class="btn btn-success" name="status"
+                                                    value="Confirmed" type="submit">Complétez</button>
+                                            </td>
+                                        </form>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
