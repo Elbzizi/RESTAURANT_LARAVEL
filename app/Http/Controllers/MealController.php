@@ -84,11 +84,7 @@ class MealController extends Controller
                 Storage::delete($meal->image);
         }
         $meal->update($data);
-        $notification = array(
-            'message_id' => 'Modification de ropas avec success',
-            'alert-type' => 'success'
-        );
-        return redirect()->route("Meal.index")->with($notification);
+        return redirect()->route("Meal.index")->with("success", "Modification de ropas avec success");
     }
 
     /**
