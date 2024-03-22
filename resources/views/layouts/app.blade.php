@@ -172,17 +172,21 @@
     <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
     <script src="//cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
 
-    @if (count($errors) > 0)
-        <script>
+    <script>
+        @if (count($errors) > 0)
             @foreach ($errors->all() as $error)
                 toastr.error("{{ $error }}", {
                     timeOut: 1900
                 });
             @endforeach
-        </script>
-    @endif
+        @endif
 
-
+        @if (session()->has('success'))
+            toastr.success("{{ session('success') }}", {
+                timeOut: 1900
+            });
+        @endif
+    </script>
 
     {{-- end Tostar message --}}
 
