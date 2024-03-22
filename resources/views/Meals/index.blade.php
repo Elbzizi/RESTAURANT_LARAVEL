@@ -46,6 +46,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        {{ $meals->links() }}
                     </div>
                 </div>
             </div>
