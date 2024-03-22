@@ -42,12 +42,11 @@ class MealController extends Controller
         $data = $request->all();
         $data["image"] = $path;
         Meal::create($data);
-        $notification = array(
-            'message_id' => 'Ajouter de ropas avec success',
-            'alert-type' => 'success'
-        );
-        // return redirect()->back()->with("success","Ajouter de ropas avec success");
-        return redirect()->route("Meal.index")->with($notification);
+        // $notification = array(
+        //     'message_id' => 'Ajouter de ropas avec success',
+        //     'alert-type' => 'success'
+        // );
+        return redirect()->route("Meal.index")->with("success", "Ajouter de ropas avec success");
     }
 
     /**
@@ -108,10 +107,10 @@ class MealController extends Controller
         if (isset ($meal->image))
             Storage::delete($meal->image);
         $meal->delete();
-        $notification = array(
-            'message_id' => 'supprimer de ropas avec success',
-            'alert-type' => 'success'
-        );
-        return redirect()->back()->with($notification);
+        // $notification = array(
+        //     'message_id' => 'supprimer de ropas avec success',
+        //     'alert-type' => 'success'
+        // );
+        return redirect()->back()->with("success", "supprimer de ropas avec success");
     }
 }

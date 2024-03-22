@@ -39,11 +39,7 @@ class OrderController extends Controller
     public function store(OrderRequest $request)
     {
         Order::create($request->all());
-        $notification = array(
-            'message_id' => 'la commonde avec success',
-            'alert-type' => 'success'
-        );
-        return redirect()->route("Visitor")->with($notification);
+        return redirect()->route("Visitor")->with("success", "la commonde avec success");
     }
 
     /**
@@ -68,11 +64,7 @@ class OrderController extends Controller
     {
         $order = Order::findOrFail($id);
         $order->update(["status" => $request->status]);
-        $notification = array(
-            'message_id' => 'modification de commande avec success',
-            'alert-type' => 'success'
-        );
-        return redirect()->back()->with($notification);
+        return redirect()->back()->with("success", "modification de commande avec success");
 
     }
 
