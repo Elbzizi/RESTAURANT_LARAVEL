@@ -29,7 +29,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        $orders = Order::where("user_id", Auth::user()->id)->paginate(5);
+        $orders = Order::where("user_id", Auth::user()->id)->get(2);
         return view("Orders.Show_Order", compact("orders"));
     }
 
