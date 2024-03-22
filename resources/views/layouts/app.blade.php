@@ -172,43 +172,18 @@
     <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
     <script src="//cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
 
-    @if (session()->has('message_id'))
+    @if (count($errors) > 0)
         <script>
-            toastr.options = {
-                "progressBar": true,
-                "closeButton": true
-            };
-            document.addEventListener('DOMContentLoaded', function() {
-                var type = "{{ session()->get('alert-type', 'info') }}";
-
-                switch (type) {
-                    case 'info':
-                        toastr.info("{{ session('message_id') }}", "info", {
-                            timeOut: 1900
-                        });
-                        break;
-
-                    case 'success':
-                        toastr.success("{{ session()->get('message_id') }}", "Success", {
-                            timeOut: 1900
-                        });
-                        break;
-
-                    case 'warning':
-                        toastr.warning("{{ session()->get('message_id') }}", "Warning", {
-                            timeOut: 1900
-                        });
-                        break;
-
-                    case 'error':
-                        toastr.error("{{ session()->get('message_id') }}", "Error", {
-                            timeOut: 1900
-                        });
-                        break;
-                }
-            });
+            @foreach ($errors->all() as $error)
+                toastr.error("{{ $error }}", {
+                    timeOut: 1900
+                });
+            @endforeach
         </script>
     @endif
+
+
+
     {{-- end Tostar message --}}
 
 </body>
