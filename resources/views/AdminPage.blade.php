@@ -41,7 +41,23 @@
                             </thead>
                             <tbody>
                                 @foreach ($orders as $order)
-                                    <tr>
+                                    {{-- <tr class=" bg-warning {{ $order->status == 'Refuse' ? 'bg-danger' : 'bg-success' }}"> --}}
+                                    <tr
+                                        class="
+                                        @switch($order->status)
+                                            @case('Refuse')
+                                                table-danger
+                                                @break
+                                            @case('Confirmed')
+                                                table-success
+                                                @break
+                                            @case('Pending')
+                                                table-info
+                                                @break
+                                        @endswitch
+                                    ">
+
+
                                         {{-- <td scope="col">{{ $order->user->name }}</td> --}}
                                         <td scope="col">{{ $order->user->email }}</td>
                                         <td scope="col">{{ $order->phone }}</td>

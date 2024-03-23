@@ -18,7 +18,7 @@ return new class extends Migration {
             $table->foreignId("meal_id")->constrained();
             $table->integer('qty')->default(0);
             $table->text('adress');
-            $table->string('status')->default("pending");
+            $table->enum("status", ['Refuse', 'Confirmed', 'Pending'])->default("Pending");
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
